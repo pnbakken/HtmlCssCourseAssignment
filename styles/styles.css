@@ -39,6 +39,44 @@ header {
 }
 
 header img {
+  width: 402px;
+  height: 146px;
+}
+
+/* -------  NAV BAR  ------- */
+
+nav {
+  display: inline;
+}
+nav a {
+  color: #60b1b8;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: inline-block;
+}
+
+nav #active {
+  color: #fbffff;
+  font-size: 1.8rem;
+}
+
+#nav-search input {
+  background: #141c26;
+  color: #60b1b8;
+  border-style: solid;
+  border-color: #60b1b8;
+  border-radius: 7.5px;
+  border-width: 2px;
+  padding: 7px;
+}
+
+/* -------  FRONT PAGE STYLES ------- */
+
+#frontpage-header img {
   width: 715px;
   height: 220px;
 }
