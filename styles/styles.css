@@ -34,26 +34,16 @@ body {
 }
 
 a {
-  font-style: italic;
-}
-
-/* -------  HEADER STYLES  ------- */
-
-header {
-  display: flex;
-  flex-direction: row;
-}
-
-header img {
-  width: 402px;
-  height: 146px;
+  text-decoration: none;
 }
 
 /* -------  NAV BAR  ------- */
 
 nav {
-  display: inline;
+  border-style: none none solid none;
+  border-color: var(--primary-color);
 }
+
 nav a {
   color: var(--primary-color);
   font-size: 1.4rem;
@@ -61,26 +51,48 @@ nav a {
 }
 
 nav ul {
-  list-style: none;
+  list-style-type: none;
 }
 
+nav li {
+  display: inline-block;
+  margin-right: 50px;
+}
 nav #active {
-  color: #fbffff;
-  font-size: 1.8rem;
+  color: var(--main-font-color);
+}
+
+header img {
+  width: 201px;
+  margin-left: 0px;
+}
+
+#logo-item {
+  margin-left: 0;
+  margin-right: 60px;
+}
+
+#search-item {
 }
 
 #nav-search input {
   background: var(--main-background-color);
-  color: #60b1b8;
+  color: var(--primary-color);
   border-style: solid;
   border-color: var(--primary-color);
-  border-radius: 8.5px;
+  border-radius: 7px;
   border-width: 2px;
   padding: 7px;
+  transition: 500ms;
+  margin-left: 130px;
+}
+
+#nav-search input:hover {
+  border-color: var(--main-font-color);
 }
 
 #nav-search input:active {
-  border-color: #fbffff;
+  border-color: var(--main-font-color);
 }
 
 /* -------  FRONT PAGE STYLES ------- */
@@ -93,4 +105,5 @@ nav #active {
 #frontpage-main-link {
   color: #f63737;
   font-size: 1.4rem;
+  text-decoration: underline;
 }
