@@ -25,11 +25,8 @@ body {
 }
 
 a {
-  font-family: futura, sans-serif;
   font-style: italic;
 }
-
-/*#60b1b8*/
 
 /* -------  HEADER STYLES  ------- */
 
@@ -72,6 +69,10 @@ nav #active {
   border-radius: 7.5px;
   border-width: 2px;
   padding: 7px;
+}
+
+#nav-search input:active {
+  border-color: #fbffff;
 }
 
 /* -------  FRONT PAGE STYLES ------- */
