@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "Futura medium italic";
-  src: url("./fonts/futur-MediumItalic.ttf") format("truetype");
+  src: url("./fonts/Futura-MediumItalic.ttf") format("truetype");
   font-style: italic;
 }
 
@@ -50,13 +50,10 @@ nav a {
   text-decoration: none;
 }
 
-nav ul {
-  list-style-type: none;
-}
-
 nav li {
   display: inline-block;
   margin-right: 50px;
+  list-style-type: none;
 }
 nav #active {
   color: var(--main-font-color);
@@ -65,6 +62,12 @@ nav #active {
 header img {
   width: 201px;
   margin-left: 0px;
+  padding: 0px;
+}
+
+.nav-menu a:hover {
+  color: var(--main-font-color);
+  transition: 500ms;
 }
 
 #logo-item {
