@@ -1,5 +1,49 @@
+/* -------  FONT IMPORTS  ------- */
+
+@font-face {
+  font-family: "Futura";
+  src: url("./fonts/futura-medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Futura medium italic";
+  src: url("./fonts/futur-MediumItalic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Futura Condensed ExtraBold";
+  src: url("./fonts/Futura-CondensedExtraBold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+/* -------  TAG STYLES  ------- */
+
 body {
   background: #141c26;
+  font-family: futura, sans-serif;
+}
+
+a {
+  font-family: futura, sans-serif;
+  font-style: italic;
 }
 
 /*#60b1b8*/
+
+/* -------  HEADER STYLES  ------- */
+
+header {
+  display: flex;
+  flex-direction: row;
+}
+
+header img {
+  width: 715px;
+  height: 220px;
+}
+
+#frontpage-main-link {
+  color: #f63737;
+  font-size: 1.4rem;
+}
