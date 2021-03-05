@@ -17,10 +17,19 @@
   font-weight: bold;
 }
 
+/* -------  ROOT VARIABLES  -------*/
+
+:root {
+  --main-background-color: #141c26;
+  --primary-color: #60b1b8;
+  --main-font-color: #fbffff;
+}
+
 /* -------  TAG STYLES  ------- */
 
 body {
-  background: #141c26;
+  background: var(--main-background-color);
+  color: var(--main-font-color);
   font-family: futura, sans-serif;
 }
 
@@ -46,14 +55,13 @@ nav {
   display: inline;
 }
 nav a {
-  color: #60b1b8;
+  color: var(--primary-color);
   font-size: 1.4rem;
   text-decoration: none;
 }
 
 nav ul {
   list-style: none;
-  display: inline-block;
 }
 
 nav #active {
@@ -62,11 +70,11 @@ nav #active {
 }
 
 #nav-search input {
-  background: #141c26;
+  background: var(--main-background-color);
   color: #60b1b8;
   border-style: solid;
-  border-color: #60b1b8;
-  border-radius: 7.5px;
+  border-color: var(--primary-color);
+  border-radius: 8.5px;
   border-width: 2px;
   padding: 7px;
 }
