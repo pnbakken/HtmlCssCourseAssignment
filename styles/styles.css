@@ -20,7 +20,7 @@
 /* -------  ROOT VARIABLES  -------*/
 
 :root {
-  --main-background-color: #141c26;
+  --primary-background-color: #141c26;
   --primary-color: #60b1b8;
   --main-font-color: #fbffff;
 }
@@ -28,15 +28,28 @@
 /* -------  TAG STYLES  ------- */
 
 body {
-  background: var(--main-background-color);
+  background: var(--primary-background-color);
   color: var(--main-font-color);
-  font-family: futura, sans-serif;
+  font-family: "open sans", sans-serif;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
 }
 
 a {
+  font-family: "Futura Medium Italic", sans-serif;
   text-decoration: none;
+}
+
+h2 {
+  font-family: "Futura Condensed ExtraBold", sans-serif;
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-family: "Futura Medium Italic", sans-serif;
+  font-size: 1.8rem;
+  color: var(--primary-color);
 }
 
 /* -------  NAV BAR  ------- */
@@ -47,12 +60,17 @@ nav {
   width: 100%;
   margin-left: 0px;
   display: inline-block;
+  padding: 0px;
 }
 
 nav a {
   color: var(--primary-color);
   font-size: 1.4rem;
   text-decoration: none;
+}
+nav ul {
+  margin-left: 5px;
+  padding-left: 5px;
 }
 
 nav li {
@@ -65,9 +83,9 @@ nav #active {
 }
 
 nav img {
-  width: 220px;
-  margin-left: 10px;
+  width: 240px;
   padding: 0px;
+  margin-right: 50px;
   display: inline-block;
 }
 
@@ -85,7 +103,7 @@ nav img {
 }
 
 #nav-search input {
-  background: var(--main-background-color);
+  background: var(--primary-background-color);
   color: var(--primary-color);
   border-style: solid;
   border-color: var(--primary-color);
@@ -117,4 +135,13 @@ nav img {
   color: #f63737;
   font-size: 1.4rem;
   text-decoration: underline;
+}
+
+/* -------  MAIN PAGE STYLES ------- */
+
+.main-content-block {
+  width: 1818px;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 10px;
 }
