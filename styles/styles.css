@@ -64,7 +64,7 @@ nav #active {
   color: var(--main-font-color);
 }
 
-header img {
+nav img {
   width: 220px;
   margin-left: 10px;
   padding: 0px;
