@@ -145,3 +145,14 @@ nav img {
   margin-left: 20px;
   margin-right: 10px;
 }
+
+.content {
+  width: 600px;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.main-content-block p {
+  margin: 10px;
+}
