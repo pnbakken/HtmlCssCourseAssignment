@@ -26,7 +26,7 @@
   --color-links: #f63737;
 }
 
-/* -------  TAG STYLES  ------- */
+/* -------  GENERICS  ------- */
 
 body {
   background: var(--color-primary-background);
@@ -53,7 +53,7 @@ h3 {
   color: var(--color-primary);
 }
 
-/* -------  UNIVERSAL UNIQUES  ------- */
+/* -------  UNIQUES  ------- */
 
 .cta {
   background: var(--color-primary-background);
@@ -61,33 +61,39 @@ h3 {
   color: var(--color-font-main);
   border-radius: 5px;
   padding: 0.5rem 1rem;
+  text-align: center;
 }
 
 .cta:hover {
   border-color: var(--color-font-main);
 }
 
+.cta::placeholder {
+  font-size: 1rem;
+  color: #fbffffa1;
+  text-align: left;
+}
+
 /* -------  FRONT PAGE  ------- */
+
+#frontpage {
+  max-width: 100%;
+  display: grid;
+  justify-content: center;
+}
 
 #frontpage-header {
   display: grid;
-  grid-template-rows: auto auto;
-  grid-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
   align-items: center;
   justify-content: center;
   max-width: 400px;
   max-height: 20%;
 }
 
-@media (min-width: 1000px) {
-  #frontpage-header {
-    grid-template-columns: auto auto auto;
-    justify-content: center;
-  }
-
-  #frontpage-header #search {
-    visibility: visible;
-  }
+#frontpage-header a {
+  grid-column: -1/1;
 }
 
 #frontpage-header #search {
@@ -95,14 +101,15 @@ h3 {
   visibility: hidden;
 }
 
-#frontpage-logo img {
+#frontpage-logo {
   max-width: 100%;
 }
 
 #frontpage-login {
   display: grid;
-  grid-template-columns: auto auto;
-  justify-content: center;
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  align-items: center;
   width: 400px;
   margin-top: 100px;
 }
