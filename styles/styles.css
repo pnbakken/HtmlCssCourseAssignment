@@ -44,7 +44,7 @@ a {
 
 h2 {
   font-family: "Futura Condensed ExtraBold", sans-serif;
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 h3 {
@@ -60,8 +60,11 @@ h3 {
   border: 1px solid var(--color-primary);
   color: var(--color-font-main);
   border-radius: 5px;
-  padding: 0.5rem 1rem;
+  padding: 5px 10px;
   text-align: center;
+
+  font-size: 1.15rem;
+  font-family: "Futura medium italic", sans-serif;
 }
 
 .cta:hover {
@@ -72,15 +75,10 @@ h3 {
   font-size: 1rem;
   color: #fbffffa1;
   text-align: left;
+  font-family: "open sans", sans-serif;
 }
 
 /* -------  FRONT PAGE  ------- */
-
-#frontpage {
-  max-width: 100%;
-  display: grid;
-  justify-content: center;
-}
 
 #frontpage-header {
   display: grid;
@@ -105,17 +103,26 @@ h3 {
   max-width: 100%;
 }
 
-#frontpage-login {
+#frontpage {
+  max-width: 90%;
   display: grid;
-  grid-template-rows: auto auto;
-  justify-content: space-between;
-  align-items: center;
-  width: 400px;
-  margin-top: 100px;
+  justify-content: center;
+  border: 2px solid white;
+  margin-top: 80px;
+  text-align: center;
 }
 
-#frontpage-login #login-email {
+#frontpage-login {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  border: 2px solid white;
+}
+
+#frontpage-login > * {
+  min-width: 100%;
 }
 
 #frontpage-login > div {
@@ -123,6 +130,17 @@ h3 {
   grid-template-columns: auto auto;
   justify-content: space-between;
   margin-top: 20px;
-  grid-gap: 10px;
-  width: 50%;
+  border: 2px solid red;
+}
+
+@media (min-width: 800px) {
+  #frontpage-login {
+    grid-template-columns: auto auto auto;
+    align-items: center;
+  }
+
+  #frontpage-login div {
+    margin-left: 30px;
+    grid-gap: 20px;
+  }
 }
