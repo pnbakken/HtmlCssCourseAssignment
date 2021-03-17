@@ -33,6 +33,9 @@ body {
   color: var(--color-font-main);
   font-family: "open sans", sans-serif;
   font-size: 1rem;
+  display: grid;
+  justify-content: center;
+  width: 100%;
 }
 
 a {
@@ -79,68 +82,3 @@ h3 {
 }
 
 /* -------  FRONT PAGE  ------- */
-
-#frontpage-header {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 20px;
-  align-items: center;
-  justify-content: center;
-  max-width: 400px;
-  max-height: 20%;
-}
-
-#frontpage-header a {
-  grid-column: -1/1;
-}
-
-#frontpage-header #search {
-  max-width: 100%;
-  visibility: hidden;
-}
-
-#frontpage-logo {
-  max-width: 100%;
-}
-
-#frontpage {
-  max-width: 90%;
-  display: grid;
-  justify-content: center;
-  border: 2px solid white;
-  margin-top: 80px;
-  text-align: center;
-}
-
-#frontpage-login {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border: 2px solid white;
-}
-
-#frontpage-login > * {
-  min-width: 100%;
-}
-
-#frontpage-login > div {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
-  margin-top: 20px;
-  border: 2px solid red;
-}
-
-@media (min-width: 800px) {
-  #frontpage-login {
-    grid-template-columns: auto auto auto;
-    align-items: center;
-  }
-
-  #frontpage-login div {
-    margin-left: 30px;
-    grid-gap: 20px;
-  }
-}
