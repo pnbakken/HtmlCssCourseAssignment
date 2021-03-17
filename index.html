@@ -10,7 +10,22 @@
 <body>
     <header id="frontpage-header">
         <a href="main.html" id="frontpage-main-link">Home</a>
-        <img src="./images/main_logo.png" alt="Square Eyes main logo" />
+        <div id="frontpage-logo">
+            <img src="./images/main_logo.png" alt="Square Eyes logo" />
+        </div>
+        
     </header>
+    <main>
+        <div id="frontpage-login">
+            <form method="POST">
+                <input type="email" name="email" id="login-email" placeholder="Email address"  class="cta" />
+                <div>
+                    <input type="submit" name="signup" value="Sign Up" id="signup" class="cta" />
+                    <input type="submit" name="login" value="Log In" id="login" class="cta" />
+                </div>
+                
+            </form>        
+        </div>
+    </main>
 </body>
 </html>
