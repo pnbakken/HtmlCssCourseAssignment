@@ -241,7 +241,7 @@ h3 {
 
 @media (min-width: 1024px) {
   #frontpage-info {
-    /* When presented as vertically I prefer to have the movie posters first, but side by side I prefer the text and cta on the left. */
+    /* When presented vertically I prefer to have the movie posters first, but side by side I prefer the text and cta on the left. */
     flex-direction: row-reverse;
     justify-content: space-around;
   }
