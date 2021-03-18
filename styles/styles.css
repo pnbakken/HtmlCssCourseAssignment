@@ -151,6 +151,7 @@ h3 {
   max-width: 100%;
   align-items: center;
   border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 10px;
 }
 
 #logo-nav {
@@ -170,6 +171,7 @@ h3 {
 
 .nav-main a {
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 .nav-main a:hover {
@@ -181,11 +183,33 @@ h3 {
 }
 
 @media (min-width: 768px) {
+  .nav-main {
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: baseline;
+    grid-gap: 20px;
+    padding-bottom: 5px;
+  }
   #logo-nav {
-    width: 50%;
+    width: 25%;
   }
 
   .nav-main a {
+    font-size: 1.5rem;
+  }
+
+  .nav-main #search {
+    max-width: 16%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-main a {
+    font-size: 1.8rem;
+  }
+
+  .nav-main li {
+    margin-right: 30px;
   }
 }
 
