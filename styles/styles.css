@@ -23,6 +23,7 @@
 
 :root {
   --color-primary-background: #141c26;
+  --color-secondary-background: #18283b;
   --color-primary: #60b1b8;
   --color-font-main: #fbffff;
   --color-links: #f63737;
@@ -57,6 +58,16 @@ h3 {
   font-family: "Futura Medium Italic", sans-serif;
   font-size: 1.8rem;
   color: var(--color-primary);
+}
+figure,
+div {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  margin: 0;
+  padding: 0;
 }
 
 /* -------  UNIVERSAL BITS  ------- */
@@ -111,6 +122,8 @@ h3 {
   font-size: 0.8rem;
 }
 .poster-scroller {
+  /* Not sure if I can finish this in time for submitting, I should find some other way to lay it out. Maybe grid-template-areas.
+     It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. */
   display: grid;
   grid-template-rows: repeat(auto);
   grid-gap: 5px;
@@ -134,7 +147,7 @@ h3 {
 }
 
 @media (min-width: 768px) {
-  /* 768px is what my browser dev tools set as the breakpoint between mobile and tablet. */
+  /* 768px is what my browser dev tools set as the breakpoint between mobile and tablet */
 
   .poster-scroller,
   .poster-scroller section {
@@ -152,11 +165,18 @@ h3 {
   align-items: center;
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 #logo-nav {
-  width: 80%;
+  max-width: 80%;
+  padding: 0;
   margin-bottom: 10px;
+  justify-self: center;
+}
+#logo-nav img {
+  max-width: 100%;
 }
 
 .nav-main ul {
@@ -169,12 +189,12 @@ h3 {
   margin-right: 10px;
 }
 
-.nav-main a {
+.nav-main li a {
   color: var(--color-primary);
   text-decoration: none;
 }
 
-.nav-main a:hover {
+.nav-main li a:hover {
   color: var(--color-font-main);
 }
 
@@ -186,7 +206,7 @@ h3 {
   .nav-main {
     flex-flow: row;
     justify-content: space-around;
-    align-items: baseline;
+    align-items: flex-end;
     grid-gap: 20px;
     padding-bottom: 5px;
   }
@@ -194,18 +214,15 @@ h3 {
     width: 25%;
   }
 
-  .nav-main a {
-    font-size: 1.5rem;
-  }
-
   .nav-main #search {
     max-width: 16%;
+    margin-bottom: 10px;
   }
 }
 
 @media (min-width: 1024px) {
   .nav-main a {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .nav-main li {
@@ -259,7 +276,7 @@ h3 {
 }
 
 #frontpage-email {
-  /* I'm not entirely happy with this element, but I can't quite grasp how to resize the input element without pushing it and the submit buttons out of position..
+  /* I'm not entirely happy with this element, but I can't quite figure out how to resize the input element without pushing it and the submit buttons out of position..
      In the original design the element is much wider and nicer looking, but I've gone with the safe choice for now */
 
   font-family: "open sans", sans-serif;
@@ -316,9 +333,46 @@ h3 {
 
 @media (min-width: 1024px) {
   #frontpage-info {
-    /* When presented vertically I prefer to have the movie posters first, but side by side I prefer the text and cta on the left. */
+    /* When presented vertically I prefer to have the movie posters first, but side by side I like the text and cta on the left. */
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
+  }
+}
+
+/* -------  MAIN PAGE STYLES  ------- */
+
+#mainpage-main:nth-child(odd) {
+  /*I could achieve what I'm trying to do here by adding and targeting classes "odd" or "even", but I want to make this work.
+    If the odd numbered backgrounds are not a different shade of blue — I wasn't able to. */
+
+  background: var(--color-secondary-background);
+}
+
+.featured-content-section {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 99%;
+}
+
+.featured-content-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.feature-content-section p {
+  max-width: 80%;
+}
+
+.content-section-image {
+  max-width: 80%;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .featured-content-section {
+    flex-flow: row wrap;
   }
 }
