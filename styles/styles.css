@@ -17,7 +17,7 @@
   font-weight: bold;
 }
 
-/* -------  ROOT VARIABLES  -------*/
+/* -------  ROOT VARIABLES  ------- */
 
 :root {
   --color-primary-background: #141c26;
@@ -34,7 +34,7 @@ body {
   font-family: "open sans", sans-serif;
   font-size: 1rem;
   max-width: 100%;
-  display: grid;
+  padding: 0;
 }
 
 a {
@@ -59,14 +59,14 @@ h3 {
 
 .cta {
   background: var(--color-primary-background);
-  border: 1px solid var(--color-primary);
+  border: 2px solid var(--color-primary);
   color: var(--color-font-main);
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 8px;
+  padding: 5px 15px;
   text-align: center;
-
   font-size: 1.15rem;
-  font-family: "Futura medium italic", sans-serif;
+  font-family: "Futura", sans-serif;
+  transition: 500ms;
 }
 
 .cta:hover {
@@ -80,6 +80,64 @@ h3 {
   font-family: "open sans", sans-serif;
 }
 
+.movie-poster {
+  /* I might change this to images before I submit, I just wanted to see if and how I could represent the small movie lists using only CSS
+     I'm sure there's better ways to do it than my solution here. */
+
+  background: white;
+  color: black;
+  width: 90px;
+  height: 128px;
+  font-family: "futura condensed extrabold", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  text-decoration: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-poster::after {
+  /* I want this to appear outside the white box. */
+
+  content: "Movie Poster";
+  font-size: 0.8rem;
+}
+.poster-scroller {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 5px;
+  justify-items: center;
+  max-width: 100%;
+  margin-top: 50px;
+}
+
+.poster-scroller section {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 100 0;
+  grid-gap: 15px;
+  justify-content: center;
+}
+
+.poster-scroller h3 {
+  font-size: 1.3rem;
+  color: var(--color-font-main);
+  border-bottom: 2px dashed var(--color-links);
+  width: fit-content;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  /* 768px is what my browser dev tools set as the breakpoint between mobile and tablet. */
+
+  .poster-scroller,
+  .poster-scroller section {
+    justify-content: flex-start;
+    justify-items: flex-start;
+  }
+}
+
 /* -------  FRONT PAGE  ------- */
 
 .frontpage-header {
@@ -88,25 +146,29 @@ h3 {
   grid-gap: 20px;
   justify-self: center;
   justify-items: center;
+  margin-top: 40px;
   margin-bottom: 80px;
   max-width: 100%;
 }
 
 #frontpage-logo {
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .frontpage {
-  border: 1px solid red;
   display: grid;
   grid-template-rows: repeat(auto);
-  text-align: center;
   max-width: 99%;
+}
+
+.frontpage h2 {
+  text-align: center;
 }
 
 .frontpage-login {
   display: grid;
   grid-template-rows: auto auto;
+  grid-gap: 10px;
   justify-content: center;
   max-width: 100%;
 }
@@ -117,15 +179,27 @@ h3 {
   justify-content: center;
   grid-gap: 50px;
   margin-top: 30px;
+  max-width: 100%;
 }
 
 #frontpage-email {
-  width: 300px;
+  /* I'm not entirely happy with this element, but I can't quite grasp how to resize the input element without pushing it and the submit buttons out of position..
+     In the original design the element is much wider and nicer looking, but I've gone with the safe choice for now */
+
+  font-family: "open sans", sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  width: 200px;
 }
 
-@media (min-width: 690px) {
+@media (min-width: 768px) {
+  .frontpage-header {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
   #frontpage-logo {
-    width: 550px;
+    max-width: 80%;
   }
 
   .frontpage-login {
