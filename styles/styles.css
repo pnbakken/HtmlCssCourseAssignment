@@ -36,6 +36,7 @@ body {
   font-family: "open sans", sans-serif;
   font-size: 1rem;
   max-width: 100%;
+  min-height: 100vh;
   padding: 0;
 }
 
@@ -44,6 +45,7 @@ a {
   font-size: 1.15rem;
   color: var(--color-links);
   text-decoration: underline;
+  transition: 500ms;
 }
 
 h2 {
@@ -138,6 +140,52 @@ h3 {
   .poster-scroller section {
     justify-content: flex-start;
     justify-items: flex-start;
+  }
+}
+
+/* -------  MAIN NAV  ------- */
+
+.nav-main {
+  display: flex;
+  flex-flow: column;
+  max-width: 100%;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+#logo-nav {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.nav-main ul {
+  padding: 0;
+}
+
+.nav-main li {
+  display: inline;
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+.nav-main a {
+  color: var(--color-primary);
+}
+
+.nav-main a:hover {
+  color: var(--color-font-main);
+}
+
+.nav-main .active {
+  color: var(--color-font-main);
+}
+
+@media (min-width: 768px) {
+  #logo-nav {
+    width: 50%;
+  }
+
+  .nav-main a {
   }
 }
 
