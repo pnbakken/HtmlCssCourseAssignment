@@ -126,7 +126,7 @@ img {
   align-items: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .movie-poster {
     width: 115px;
     height: 153px;
@@ -404,7 +404,8 @@ footer {
 
 .calls {
   max-width: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   grid-gap: 10px;
 }
@@ -440,6 +441,10 @@ footer {
   .present-text {
     max-width: 70%;
   }
+
+  .calls {
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -450,7 +455,6 @@ footer {
   }
 
   .calls {
-    flex-direction: column;
     grid-gap: 20px;
     float: right;
   }
