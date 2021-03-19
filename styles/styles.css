@@ -1,3 +1,7 @@
+/* Attempting to create based layout for minimum 320px screen, then adjusting for upscaling. Trying to think "programmatically" and
+   creating reusable elements. Learning as I go so maybe some flexboxes should be grids or vice versa. This is the second time building
+   the page from the ground up, so not going to mess too much with it now, but we could well se a third complete revision in the future. */
+
 /* -------  FONT IMPORTS  ------- */
 
 @font-face {
@@ -38,6 +42,8 @@ body {
   font-size: 1rem;
   max-width: 100%;
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 a {
@@ -242,6 +248,16 @@ img {
   }
 }
 
+/* -------  FOOTER  ------- */
+
+footer {
+  border-top: 2px solid var(--color-primary);
+  padding-top: 10px;
+  text-align: center;
+  font-family: Futura, open-sans;
+  font-size: 1.2rem;
+}
+
 /* -------  FRONT PAGE  ------- */
 
 .frontpage-header {
@@ -288,7 +304,8 @@ img {
 }
 
 #frontpage-email {
-  /* I'm not entirely happy with this element, but I can't quite figure out how to resize the input element without pushing it and the submit buttons out of position..
+  /* I'm not entirely happy with this element, but I can't quite figure out how to resize the input element without pushing it and 
+     the submit buttons out of position..
      In the original design the element is much wider and nicer looking, but I've gone with the safe choice for now */
 
   font-family: "open sans", sans-serif;
@@ -361,13 +378,6 @@ img {
   align-items: center;
 }
 
-#mainpage-main:nth-child(even) {
-  /*I could achieve what I'm trying to do here by adding and targeting classes "odd" or "even", but I want to make this work.
-    If the odd numbered backgrounds are not a different shade of blue — I wasn't able to. */
-
-  background: var(--color-secondary-background);
-}
-
 .featured-content-section {
   display: flex;
   flex-flow: column nowrap;
@@ -375,6 +385,7 @@ img {
   align-items: center;
   max-width: 90%;
   padding-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .feature-presentation {
