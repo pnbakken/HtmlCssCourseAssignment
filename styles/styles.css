@@ -38,7 +38,6 @@ body {
   font-size: 1rem;
   max-width: 100%;
   min-height: 100vh;
-  padding: 0;
 }
 
 a {
@@ -98,14 +97,18 @@ img {
   font-family: "open sans", sans-serif;
 }
 
+.purchase {
+  border-color: var(--color-links);
+}
+
 .movie-poster {
   /* I might change this to images before I submit, I just wanted to see if and how I could represent the small movie lists using only CSS
      I'm sure there's better ways to do it than my solution here. */
 
   background: white;
   color: black;
-  width: 90px;
-  height: 128px;
+  width: 100px;
+  height: 138px;
   font-family: "futura condensed extrabold", sans-serif;
   font-size: 1.8rem;
   text-align: center;
@@ -153,6 +156,7 @@ img {
   .poster-scroller section {
     justify-content: flex-start;
     justify-items: flex-start;
+    grid-template-columns: repeat(auto);
   }
 }
 
@@ -165,7 +169,7 @@ img {
   align-items: center;
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   position: relative;
 }
 
@@ -342,7 +346,14 @@ img {
 
 /* -------  MAIN PAGE STYLES  ------- */
 
-#mainpage-main:nth-child(odd) {
+#mainpage-main {
+  max-width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+#mainpage-main:nth-child(even) {
   /*I could achieve what I'm trying to do here by adding and targeting classes "odd" or "even", but I want to make this work.
     If the odd numbered backgrounds are not a different shade of blue — I wasn't able to. */
 
@@ -355,10 +366,22 @@ img {
   justify-content: center;
   align-items: center;
   max-width: 90%;
+  padding-bottom: 20px;
+}
+
+.feature-presentation {
+  display: flex;
+  flex-direction: column;
+}
+
+.calls {
+  max-width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-gap: 10px;
 }
 
 .featured-content-section h2 {
-  text-align: center;
   margin-bottom: 10px;
 }
 
@@ -373,6 +396,34 @@ img {
 
 @media (min-width: 768px) {
   .featured-content-section {
-    flex-flow: row wrap;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    grid-gap: 20px;
+  }
+
+  .feature-presentation {
+    flex-direction: row;
+    max-width: 50%;
+    align-items: center;
+  }
+
+  .present-text {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-content-section {
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calls {
+    flex-direction: column;
+    grid-gap: 20px;
+    float: right;
   }
 }
