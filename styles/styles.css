@@ -381,10 +381,13 @@ footer {
 }
 
 #mainpage-main:nth-child(odd) {
+  /* Not able to get this working */
+
   background: var(--color-secondary-background);
 }
 
 .featured-content-section {
+  background: var(--color-secondary-background);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
