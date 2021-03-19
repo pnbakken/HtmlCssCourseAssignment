@@ -118,6 +118,13 @@ img {
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  .movie-poster {
+    width: 115px;
+    height: 153px;
+  }
+}
+
 .movie-poster::after {
   /* I want this to appear outside the white box. */
 
@@ -126,7 +133,8 @@ img {
 }
 .poster-scroller {
   /* Not sure if I can finish this in time for submitting, I should find some other way to lay it out. Maybe grid-template-areas.
-     It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. */
+     It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. This is only a placeholder anyway, the way I would 
+     like it make it is to be it's own self contained scrolling area with a fixed width.  */
   display: grid;
   grid-template-rows: repeat(auto);
   grid-gap: 5px;
