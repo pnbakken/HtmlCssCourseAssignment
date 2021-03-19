@@ -250,7 +250,7 @@ img {
 .frontpage {
   display: grid;
   grid-template-rows: repeat(auto);
-  max-width: 99%;
+  max-width: 100%;
 }
 
 .frontpage h2 {
@@ -354,7 +354,7 @@ img {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  max-width: 99%;
+  max-width: 90%;
 }
 
 .featured-content-section h2 {
