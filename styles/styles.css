@@ -1,14 +1,15 @@
-/* Attempting to create layout for minimum 320px screen, then adjusting for upscaling. Trying to think "programmatically" and
+/* Attempting to create layout for minimum 320px screen, then adjusting for upscaling. Trying to think programmatically and
    creating reusable elements. Learning as I go so maybe some flexboxes should be grids or vice versa.
    Some sizes and positions can be wonky at certain screen sizes.
-   This is the second time building the page from the ground up, so not going to mess too much with it now, but we could well 
+   This is the second time building the pages from the ground up so not going to mess too much more with it now, but we could well 
    see a third complete revision in the future.  */
 
 /* -------  FONT IMPORTS  ------- */
 
 @font-face {
-  /* I've extracted these font files from a ttc pre-installed on my laptop. I only have a desktop licencse to use Futura so I would need to find an alternative
-     if this were intended for anything other than school use. Or pay up. */
+  /* I've extracted these font files from a ttc pre-installed on my laptop. I only have a desktop licence to use Futura so I would need to find an alternative
+     if this site were intended for anything other than school use. Or pay up. */
+
   font-family: "Futura";
   src: url("./fonts/futura-medium.ttf") format("truetype");
 }
@@ -66,11 +67,6 @@ h3 {
   font-size: 1.8rem;
   color: var(--color-primary);
 }
-figure,
-div {
-  padding: 0;
-  margin: 0;
-}
 
 img {
   margin: 0;
@@ -110,7 +106,7 @@ img {
 }
 
 .movie-poster {
-  /* I might change this to images before I submit, I just wanted to see if and how I could represent the small movie lists using only CSS
+  /* I might change this to images before I submit, I just wanted to see if and how I could represent the posters using only CSS
      I'm sure there's better ways to do it than my solution here. */
 
   background: white;
@@ -139,10 +135,11 @@ img {
   content: "Movie Poster";
   font-size: 0.8rem;
 }
+
 .poster-scroller {
   /* Not sure if I can finish this in time for submitting, I should find some other way to lay it out. Maybe grid-template-areas.
      It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. This is only a placeholder anyway, the way I would 
-     like it make it is to be it's own self contained scrolling area with a fixed width.  */
+     like it is to be its own self contained scrolling area with a fixed width.  */
   display: grid;
   grid-template-rows: repeat(auto);
   grid-gap: 5px;
@@ -168,11 +165,13 @@ img {
 @media (min-width: 768px) {
   /* 768px is what my browser dev tools set as the breakpoint between mobile and tablet */
 
+  .poster-scroller {
+    grid-template-columns: repeat(auto);
+  }
   .poster-scroller,
   .poster-scroller section {
     justify-content: flex-start;
     justify-items: flex-start;
-    grid-template-columns: repeat(auto);
   }
 }
 
