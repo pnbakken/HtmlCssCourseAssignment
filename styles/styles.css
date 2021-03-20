@@ -434,13 +434,13 @@ footer {
 
   .featured-content-section:nth-child(even) .feature-presentation {
     flex-direction: row-reverse;
-    justify-content: space-evenly;
   }
 
   .feature-presentation {
     flex-direction: row;
     max-width: 50%;
     align-items: center;
+    justify-content: space-evenly;
   }
 
   .present-text {
