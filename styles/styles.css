@@ -433,7 +433,7 @@ footer {
   }
 
   .featured-content-section:nth-child(even) .feature-presentation {
-    flex-direction: row-reverse;
+    flex-direction: column;
   }
 
   .feature-presentation {
@@ -449,6 +449,10 @@ footer {
 
   .calls {
     flex-direction: column;
+  }
+
+  .featured-content-section:nth-child(even) .feature-presentation .calls {
+    flex-direction: row;
   }
 }
 
