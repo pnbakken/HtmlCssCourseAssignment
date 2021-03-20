@@ -1,6 +1,6 @@
 /* Attempting to create layout for minimum 320px screen, then adjusting for upscaling. Trying to think programmatically and
    creating reusable elements. Learning as I go so maybe some flexboxes should be grids or vice versa.
-   Some sizes and positions can be wonky at certain screen sizes. 320px and 1440px are the optimal screen widths at the moment.
+   Some sizes and positions can be wonky at certain screen sizes. Smaller than 768px, or 1440px are the optimal screen widths at the moment.
    This is the second time building the pages from the ground up so not going to mess too much more with it now, but we could well 
    see a third complete revision in the future.  */
 
