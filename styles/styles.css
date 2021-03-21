@@ -221,6 +221,11 @@ img {
   color: var(--color-font-main);
 }
 
+.nav-main #search {
+  text-align: start;
+  font-family: "open sans", sans-serif;
+}
+
 @media (min-width: 768px) {
   .nav-main {
     flex-flow: row;
