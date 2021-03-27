@@ -29,6 +29,8 @@
 /* -------  ROOT VARIABLES  ------- */
 
 :root {
+  /* I'm sure there's more values I could assign to variables, but colours are the only "constants" I can think of at the moment. */
+
   --color-primary-background: #141c26;
   --color-secondary-background: #18283b;
   --color-primary: #60b1b8;
@@ -120,6 +122,7 @@ img {
   display: grid;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 }
 
 @media (min-width: 1024px) {
@@ -139,7 +142,7 @@ img {
 .poster-scroller {
   /* Not sure if I can finish this in time for submitting, I should find some other way to lay it out. Maybe grid-template-areas.
      It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. This is only a placeholder anyway, the way I would 
-     like it is to be its own self contained scrolling area with a fixed width.  */
+     like it is to be its own self contained scrolling area with a fixed width. */
   display: grid;
   grid-template-rows: repeat(auto);
   grid-gap: 5px;
