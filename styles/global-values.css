@@ -15,31 +15,10 @@
 body {
   background: var(--color-primary-background);
   color: var(--color-font-main);
-  font-family: "open sans", sans-serif;
-  font-size: 1rem;
   max-width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-
-a {
-  font-family: "Futura Medium Italic", sans-serif;
-  font-size: 1.15rem;
-  color: var(--color-links);
-  text-decoration: underline;
-  transition: 500ms;
-}
-
-h2 {
-  font-family: "Futura Condensed ExtraBold", sans-serif;
-  font-size: 2rem;
-}
-
-h3 {
-  font-family: "Futura Medium Italic", sans-serif;
-  font-size: 1.8rem;
-  color: var(--color-primary);
 }
 
 /* -------  UNIVERSAL BITS  ------- */
