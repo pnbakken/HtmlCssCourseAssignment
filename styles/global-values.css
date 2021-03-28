@@ -1,0 +1,235 @@
+/* -------  ROOT VARIABLES  ------- */
+
+:root {
+  /* I'm sure there's more values I could assign to variables, but colours are the only "constants" I can think of at the moment. */
+
+  --color-primary-background: #141c26;
+  --color-secondary-background: #18283b;
+  --color-primary: #60b1b8;
+  --color-font-main: #fbffff;
+  --color-links: #f63737;
+}
+
+/* -------  GENERICS  ------- */
+
+body {
+  background: var(--color-primary-background);
+  color: var(--color-font-main);
+  font-family: "open sans", sans-serif;
+  font-size: 1rem;
+  max-width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+a {
+  font-family: "Futura Medium Italic", sans-serif;
+  font-size: 1.15rem;
+  color: var(--color-links);
+  text-decoration: underline;
+  transition: 500ms;
+}
+
+h2 {
+  font-family: "Futura Condensed ExtraBold", sans-serif;
+  font-size: 2rem;
+}
+
+h3 {
+  font-family: "Futura Medium Italic", sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+
+/* -------  UNIVERSAL BITS  ------- */
+
+.cta {
+  /* The XD prototype has button text in italics but I've changed my mind since then */
+
+  background: var(--color-primary-background);
+  border: 2px solid var(--color-primary);
+  color: var(--color-font-main);
+  border-radius: 8px;
+  padding: 5px 15px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-family: "Futura", sans-serif;
+  text-decoration: none;
+  transition: 500ms;
+}
+
+.cta:hover {
+  border-color: var(--color-font-main);
+}
+
+.cta::placeholder {
+  font-size: 1rem;
+  color: #cdd4d4;
+  text-align: left;
+  font-family: "open sans", sans-serif;
+}
+
+.purchase {
+  border-color: var(--color-links);
+}
+
+.movie-poster {
+  /* I might change this to images before I submit, I just wanted to see if and how I could represent the posters using only CSS
+         I'm sure there's better ways to do it than my solution here. */
+
+  background: white;
+  color: black;
+  width: 100px;
+  height: 138px;
+  font-family: "futura condensed extrabold", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  text-decoration: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+@media (min-width: 1024px) {
+  .movie-poster {
+    width: 115px;
+    height: 153px;
+  }
+}
+
+.movie-poster::after {
+  /* I want this to appear outside the white box. */
+
+  content: "Movie Poster";
+  font-size: 0.8rem;
+}
+
+.poster-scroller {
+  /* Not sure if I can finish this in time for submitting, I should find some other way to lay it out. Maybe grid-template-areas.
+         It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. This is only a placeholder anyway, the way I would 
+         like it is to be its own self contained scrolling area with a fixed width. */
+  display: grid;
+  grid-template-rows: repeat(auto);
+  grid-gap: 5px;
+  justify-items: center;
+  max-width: 100%;
+}
+
+.poster-scroller section {
+  display: flex;
+  flex-flow: row wrap;
+  grid-gap: 15px;
+  justify-content: center;
+}
+
+.poster-scroller h3 {
+  font-size: 1.3rem;
+  color: var(--color-font-main);
+  border-bottom: 2px dashed var(--color-links);
+  width: fit-content;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  /* 768px is what my browser dev tools set as the breakpoint between mobile and tablet */
+
+  .poster-scroller {
+    grid-template-columns: repeat(auto);
+  }
+  .poster-scroller,
+  .poster-scroller section {
+    justify-content: flex-start;
+    justify-items: flex-start;
+  }
+}
+
+/* -------  MAIN NAV  ------- */
+
+.nav-main {
+  display: flex;
+  flex-flow: column;
+  max-width: 100%;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+#logo-nav {
+  max-width: 80%;
+  padding: 0;
+  margin-bottom: 10px;
+  justify-self: center;
+}
+#logo-nav img {
+  max-width: 100%;
+}
+
+.nav-main ul {
+  padding: 0;
+}
+
+.nav-main li {
+  display: inline;
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+.nav-main li a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-main li a:hover {
+  color: var(--color-font-main);
+}
+
+.nav-main .active {
+  color: var(--color-font-main);
+}
+
+.nav-main #search {
+  text-align: start;
+  font-family: "open sans", sans-serif;
+}
+
+@media (min-width: 768px) {
+  .nav-main {
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    grid-gap: 20px;
+    padding-bottom: 5px;
+  }
+  #logo-nav {
+    width: 25%;
+  }
+
+  .nav-main #search {
+    max-width: 16%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-main a {
+    font-size: 1.5rem;
+  }
+
+  .nav-main li {
+    margin-right: 30px;
+  }
+}
+
+/* -------  FOOTER  ------- */
+
+footer {
+  border-top: 2px solid var(--color-primary);
+  padding-top: 10px;
+  text-align: center;
+  font-family: Futura, open-sans;
+  font-size: 1.2rem;
+}
