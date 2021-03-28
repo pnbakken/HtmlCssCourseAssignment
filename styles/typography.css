@@ -1,0 +1,21 @@
+/* -------  FONT IMPORTS  ------- */
+
+@font-face {
+  /* I've extracted these font files from a ttc pre-installed on my laptop. I only have a desktop licence to use Futura so I would need to find an alternative
+       if this site were intended for anything other than school use. Or pay up. */
+
+  font-family: "Futura";
+  src: url("./fonts/futura-medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Futura medium italic";
+  src: url("./fonts/Futura-MediumItalic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Futura Condensed ExtraBold";
+  src: url("./fonts/Futura-CondensedExtraBold.ttf") format("truetype");
+  font-weight: bold;
+}
