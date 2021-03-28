@@ -1,0 +1,43 @@
+/* -------  ROOT VARIABLES  ------- */
+
+:root {
+  /* I'm sure there's more values I could assign to variables, but colours are the only "constants" I can think of at the moment. */
+
+  --color-primary-background: #141c26;
+  --color-secondary-background: #18283b;
+  --color-primary: #60b1b8;
+  --color-font-main: #fbffff;
+  --color-links: #f63737;
+}
+
+/* -------  GENERICS  ------- */
+
+body {
+  background: var(--color-primary-background);
+  color: var(--color-font-main);
+  font-family: "open sans", sans-serif;
+  font-size: 1rem;
+  max-width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+a {
+  font-family: "Futura Medium Italic", sans-serif;
+  font-size: 1.15rem;
+  color: var(--color-links);
+  text-decoration: underline;
+  transition: 500ms;
+}
+
+h2 {
+  font-family: "Futura Condensed ExtraBold", sans-serif;
+  font-size: 2rem;
+}
+
+h3 {
+  font-family: "Futura Medium Italic", sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
