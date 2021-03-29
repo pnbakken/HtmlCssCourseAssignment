@@ -20,7 +20,22 @@
                 <input type="text" name="search" id="search" class="cta" placeholder="Search" />
             </nav>
        </header>
-       <h2>Register New Account</h2>
+       <main>
+            <h2>Register New Account</h2>
+            <form-field>
+                <form action="register.html" method="POST" class="signup">
+                    <div>
+                        <input type="text" name="full-name" id="full-name" class="cta" placeholder="Full Name" />
+                        <input type="email" name="email" id="email" class="cta" placeholder="Email" />
+                        
+                        
+                        <input type="password" name="password" id="password" class="cta" placeholder="Password" />
+                        <input type="password-confirm" name="password-confirm" id="password-confirm" class="cta" placeholder="Confirm Password" />
+                    </div>
+                    <input type="submit" name="submit" id="submit" class="cta" value="Submit" />
+                    </form>
+            </form-field>
+        </main>
        <footer>
         <span>&copy2021 PNB</span>
     </footer>
