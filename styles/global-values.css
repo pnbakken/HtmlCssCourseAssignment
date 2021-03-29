@@ -170,7 +170,7 @@ body {
   color: var(--color-font-main);
 }
 
-.nav-main #search {
+.input {
   text-align: start;
   font-family: "open sans", sans-serif;
 }
