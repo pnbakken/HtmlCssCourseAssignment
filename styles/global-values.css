@@ -8,9 +8,16 @@
   --color-primary: #60b1b8;
   --color-font-main: #fbffff;
   --color-links: #f63737;
+
+  --font-body: "Open Sans", sans-serif;
 }
 
 /* -------  GENERICS  ------- */
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background: var(--color-primary-background);
@@ -46,7 +53,7 @@ body {
   font-size: 1rem;
   color: #cdd4d4;
   text-align: left;
-  font-family: "open sans", sans-serif;
+  font-family: var(--font-body);
 }
 
 .purchase {
@@ -132,7 +139,7 @@ body {
   max-width: 100%;
   align-items: center;
   border-bottom: 2px solid var(--color-primary);
-  padding-bottom: 10px;
+  padding: 0 15px 10px 15px;
   margin-bottom: 50px;
   position: relative;
 }
@@ -149,6 +156,7 @@ body {
 
 .nav-main ul {
   padding: 0;
+  margin-bottom: 20px;
 }
 
 .nav-main li {
@@ -172,10 +180,10 @@ body {
 
 .input {
   text-align: start;
-  font-family: "open sans", sans-serif;
+  font-family: var(--font-body);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav-main {
     flex-flow: row;
     justify-content: space-between;
