@@ -248,3 +248,29 @@
   border: 1px solid var(--color-primary);
   border-radius: 8px;
 }
+
+/* -------  FILM PAGE  ------- */
+
+.film-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.film-box {
+  background: var(--color-secondary-background);
+  max-width: 99%;
+  display: flex;
+}
+
+.fact-box {
+  display: flex;
+}
+
+#poster-box {
+  background-image: url("./images/film-page/poster-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 254px;
+}
