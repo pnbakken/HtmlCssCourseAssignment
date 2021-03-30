@@ -110,6 +110,7 @@
 
   #frontpage-intro {
     max-width: 42%;
+    align-self: center;
   }
 }
 
@@ -119,6 +120,10 @@
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
+  }
+
+  #frontpage-intro {
+    max-width: 30%;
   }
 }
 
@@ -255,6 +260,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 80%;
 }
 
 .film-box {
@@ -268,7 +274,7 @@
 }
 
 #poster-box {
-  background-image: url("./images/film-page/poster-scaled.jpg");
+  background-image: url(./images/film-page/poster-scaled.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

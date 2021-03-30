@@ -28,6 +28,10 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+main {
+  padding: 10px;
+}
+
 /* -------  UNIVERSAL BITS  ------- */
 
 .cta {
@@ -43,6 +47,7 @@ body {
   font-family: "Futura", sans-serif;
   text-decoration: none;
   transition: 500ms;
+  margin-bottom: 15px;
 }
 
 .cta:hover {
@@ -116,6 +121,7 @@ body {
   border-bottom: 2px dashed var(--color-links);
   width: fit-content;
   padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
@@ -131,6 +137,10 @@ body {
   }
 }
 
+.checkmark {
+  background: var(--color-primary-background);
+}
+
 /* -------  MAIN NAV  ------- */
 
 .nav-main {
@@ -139,7 +149,7 @@ body {
   max-width: 100%;
   align-items: center;
   border-bottom: 2px solid var(--color-primary);
-  padding: 0 15px 10px 15px;
+  padding: 0 5px 10px 5px;
   margin-bottom: 50px;
   position: relative;
 }
