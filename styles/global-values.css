@@ -47,7 +47,6 @@ main {
   font-family: "Futura", sans-serif;
   text-decoration: none;
   transition: 500ms;
-  margin-bottom: 15px;
 }
 
 .cta:hover {
