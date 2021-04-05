@@ -30,16 +30,16 @@ a {
   transition: 500ms;
 }
 
-h2 {
+h1 {
   font-family: "Futura Condensed ExtraBold", sans-serif;
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
-h3 {
-  font-family: "Futura Medium Italic", sans-serif;
-  font-size: 1.8rem;
-  color: var(--color-primary);
+h2 {
+  font-family: "Futura Condensed ExtraBold", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 p {

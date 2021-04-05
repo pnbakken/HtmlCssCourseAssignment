@@ -10,6 +10,8 @@
   --color-links: #f63737;
 
   --font-body: "Open Sans", sans-serif;
+  --font-main-heading: "futura condensed extrabold", sans-serif;
+  --font-heading-secondary: "Futura Medium Italic", sans-serif;
 }
 
 /* -------  GENERICS  ------- */
@@ -72,7 +74,7 @@ main {
   color: black;
   width: 100px;
   height: 138px;
-  font-family: "futura condensed extrabold", sans-serif;
+  font-family: var(--font-main-heading);
   font-size: 1.8rem;
   text-align: center;
   text-decoration: none;
@@ -101,7 +103,7 @@ main {
          It looks ok on the front page but once I started using it on the "main" page it all went a bit wonky. This is only a placeholder anyway, the way I would 
          like it is to be its own self contained scrolling area with a fixed width. */
   display: grid;
-  grid-template-rows: repeat(auto);
+  grid-template-rows: repeat();
   grid-gap: 5px;
   justify-items: center;
   max-width: 100%;
@@ -114,8 +116,9 @@ main {
   justify-content: center;
 }
 
-.poster-scroller h3 {
+.poster-scroller .scroller-title {
   font-size: 1.3rem;
+  font-family: var(--font-heading-secondary);
   color: var(--color-font-main);
   border-bottom: 2px dashed var(--color-links);
   width: fit-content;
@@ -127,7 +130,7 @@ main {
   /* 768px is what my browser dev tools set as the breakpoint between mobile and tablet */
 
   .poster-scroller {
-    grid-template-columns: repeat(auto);
+    grid-template-columns: repeat();
   }
   .poster-scroller,
   .poster-scroller section {
@@ -187,7 +190,7 @@ main {
   color: var(--color-font-main);
 }
 
-.input {
+.search {
   text-align: start;
   font-family: var(--font-body);
 }
