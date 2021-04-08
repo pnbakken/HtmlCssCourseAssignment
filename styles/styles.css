@@ -267,8 +267,9 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 95%;
+  max-width: 100%;
   position: relative;
+  padding-bottom: 50px;
 }
 
 .filmpage-content {
@@ -282,7 +283,7 @@
   background: var(--color-secondary-background);
   max-width: 99%;
   display: flex;
-  grid-gap: 50px;
+  grid-gap: 30px;
   flex-flow: column;
   padding: 30px 15px;
 }
@@ -290,6 +291,7 @@
 @media (min-width: 700px) {
   .film-box {
     flex-flow: row;
+    justify-content: space-between;
   }
 }
 
@@ -338,11 +340,23 @@
   background: var(--color-secondary-background);
   display: flex;
   flex-flow: column;
+  align-items: center;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.fa-star {
+  color: var(--color-primary);
 }
 
 @media (min-width: 768px) {
   .film-presentation {
     flex-flow: row;
-    max-width: 50%;
+    max-width: 60%;
+  }
+
+  .film-social {
+    max-width: 60%;
+    float: right;
   }
 }

@@ -38,7 +38,7 @@ main {
   background: var(--color-primary-background);
   border: 2px solid var(--color-primary);
   color: var(--color-font-main);
-  width: fit-content;
+  width: 80px;
   border-radius: 8px;
   padding: 5px 15px;
   text-align: center;
