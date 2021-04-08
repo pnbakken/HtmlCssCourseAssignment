@@ -1,3 +1,9 @@
+:root {
+  --font-body: "Open Sans", sans-serif;
+  --font-main-heading: "futura condensed extrabold", sans-serif;
+  --font-heading-secondary: "Futura Medium Italic", sans-serif;
+}
+
 /* -------  FONT IMPORTS  ------- */
 
 @font-face {
@@ -21,6 +27,11 @@
 }
 
 /* -------  TAGS  ------- */
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
 
 a {
   font-family: "Futura Medium Italic", sans-serif;
@@ -46,4 +57,19 @@ p {
   font-family: var(--font-body);
   font-size: 1rem;
   margin-bottom: 15px;
+}
+
+/* -------  IDS  ------- */
+
+/* -------  FILM PAGE  ------- */
+
+#fact-box-title {
+  font-family: var(--font-main-heading);
+  font-size: 1.5rem;
+}
+
+#director {
+  font-family: var(--font-heading-secondary);
+  font-size: 1.3rem;
+  color: white;
 }

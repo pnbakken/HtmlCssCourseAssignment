@@ -8,10 +8,6 @@
   --color-primary: #60b1b8;
   --color-font-main: #fbffff;
   --color-links: #f63737;
-
-  --font-body: "Open Sans", sans-serif;
-  --font-main-heading: "futura condensed extrabold", sans-serif;
-  --font-heading-secondary: "Futura Medium Italic", sans-serif;
 }
 
 /* -------  GENERICS  ------- */
@@ -42,6 +38,7 @@ main {
   background: var(--color-primary-background);
   border: 2px solid var(--color-primary);
   color: var(--color-font-main);
+  width: fit-content;
   border-radius: 8px;
   padding: 5px 15px;
   text-align: center;
@@ -148,6 +145,7 @@ main {
 .nav-main {
   display: flex;
   flex-flow: column;
+  grid-gap: 10px;
   max-width: 100%;
   align-items: center;
   border-bottom: 2px solid var(--color-primary);
@@ -168,7 +166,6 @@ main {
 
 .nav-main ul {
   padding: 0;
-  margin-bottom: 20px;
 }
 
 .nav-main li {
@@ -195,16 +192,17 @@ main {
   font-family: var(--font-body);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 780px) {
   .nav-main {
     flex-flow: row;
     justify-content: space-between;
     align-items: flex-end;
     grid-gap: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
   }
   #logo-nav {
     width: 25%;
+    margin-bottom: 0;
   }
 
   .nav-main #search {

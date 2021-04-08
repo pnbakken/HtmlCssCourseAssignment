@@ -20,22 +20,53 @@
                 <input type="text" name="search" class="cta search" placeholder="Search" />
             </nav>
        </header>
-       <h1>Film Page</h1>
+       
        <main class="film-main">
-            <section class="film-box">
-                <div class="fact-box">
-                    <div id="poster-box"></div>
-                    <span class="fact-box-title">A Field In England</span>
-                </div>
-                <div class="film-presentation">
-                    <div class="film-text">
-
+        <h1>Film Page</h1>
+        <div class="filmpage-content">
+                <section class="film-box">
+                    <div class="fact-box">
+                        <div id="poster-box"><img src="./images/film-page/poster-scaled.jpg" alt="A Field In England film poster"></div>
+                        <span id="fact-box-title">A Field In England</span>
+                        <div class="fact-box-facts">
+                            <ul>
+                                <li> Director: <span id="director">Ben Wheatley</span></li>
+                                <li id="year">2013</li>
+                                <ul id="cast-crew">
+                                    <li>Reece Shearsmith</li>
+                                    <li>Julian Barratt</li>
+                                    <li>Michael Smiley</li>
+                                </ul>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="film-social">
+                    <div class="film-presentation">
+                        <div class="film-text">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum vero repellendus molestias rerum, aut harum nihil? Incidunt expedita nisi pariatur autem commodi? Quia sapiente tempora odio mollitia quae dolore reiciendis!</p>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt assumenda vel doloribus illo debitis? Necessitatibus animi, doloribus quos, rerum iusto dolore architecto nulla, dolor consectetur perferendis cumque obcaecati molestias ipsa!</p>
+                            </div>
+                            <div>
+                                <div class="movie-still">
+                                    <img src="./images/film-page/screenshot-cropped.jpg" alt="Movie still. Man in civil war clothes standing in a field." />
+                                </div>
+                                <a href="./tickets.html" class="cta purchase" id="film-ticket">Tickets</a>
+                            </div>
+                        </div>
+                        <div class="film-social">
+                            <div id="rating">
 
+                            </div>
+                            <div id="users-liked">
+
+                            </div>
+                            <div id="reviews">
+                                <a href="#">User Reviews</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
        </main>
        <footer>
         <span>&copy2021 PNB</span>
