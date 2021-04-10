@@ -33,12 +33,10 @@ main {
 /* -------  UNIVERSAL BITS  ------- */
 
 .cta {
-  /* The XD prototype has button text in italics but I've changed my mind since then */
-
   background: var(--color-primary-background);
   border: 2px solid var(--color-primary);
   color: var(--color-font-main);
-  width: 80px;
+  width: 95px;
   border-radius: 8px;
   padding: 5px 15px;
   text-align: center;
@@ -190,6 +188,7 @@ main {
 .search {
   text-align: start;
   font-family: var(--font-body);
+  width: 200px;
 }
 
 @media (min-width: 780px) {

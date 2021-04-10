@@ -42,15 +42,20 @@ a {
 }
 
 h1 {
-  font-family: "Futura Condensed ExtraBold", sans-serif;
+  font-family: var(--font-main-heading);
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
 h2 {
-  font-family: "Futura Condensed ExtraBold", sans-serif;
-  font-size: 2rem;
+  font-family: var(--font-main-heading);
+  font-size: 1.8rem;
   margin-bottom: 10px;
+}
+
+h3 {
+  font-family: "Futura Medium Italic";
+  font-size: 1.4rem;
 }
 
 p {
