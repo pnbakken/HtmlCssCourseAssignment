@@ -135,7 +135,14 @@ main {
 }
 
 .checkmark {
+  /* I can't figure this one out */
+
   background: var(--color-primary-background);
+}
+
+.input {
+  width: 250px;
+  margin-bottom: 10px;
 }
 
 /* -------  MAIN NAV  ------- */

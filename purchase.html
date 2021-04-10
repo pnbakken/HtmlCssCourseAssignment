@@ -20,7 +20,27 @@
                 <input type="text" name="search" class="cta search" placeholder="Search…" />
             </nav>
        </header>
-       <h2>Purchase Pay-Per-View</h2>
+       <main class="purchase-main">
+           <h1>Purchase Pay-Per-View</h1>
+           <div class="purchase-display">
+               <div class="purchase-details">
+                   <div class="product-info">
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <div class="product-info-text">
+                            <span class="movie-title">Movie Poster</span>
+                            <span class="movie-price">999nok</span>
+                        </div> 
+                   </div>
+               </div>
+                <form-field id="payment-info">
+                    <h2>Payment</h2>
+                    <input type="number" class="cta input" name="bank-account-number" id="bank-account-number" placeholder="account number"/>
+                    <input type="password" class="cta input" name="personal-password-and-pin-number" id="personal-password-and-pin-number" placeholder="account password and pin" />
+                    <input type="submit" class="cta purchase" id="submit" value="Submit" />
+                </form-field>
+           </div>
+       </main>
+       
        <footer>
         <span>&copy2021 PNB</span>
     </footer>
