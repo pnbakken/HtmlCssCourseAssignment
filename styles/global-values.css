@@ -143,6 +143,7 @@ main {
 .input {
   width: 250px;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 /* -------  MAIN NAV  ------- */
