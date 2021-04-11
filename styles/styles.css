@@ -535,6 +535,7 @@
 
 .search-result-menu-item {
   width: 150px;
+  border: 2px solid var(--color-input-border);
 }
 
 .result-table {
