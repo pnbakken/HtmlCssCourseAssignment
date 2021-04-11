@@ -516,6 +516,7 @@
 .search-option {
   text-align: start;
   width: 200px;
+  border: 3px solid var(--color-secondary-background);
 }
 
 .search-result-display {

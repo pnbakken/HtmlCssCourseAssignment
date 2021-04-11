@@ -71,7 +71,7 @@ p {
 }
 
 #director {
-  font-family: var(--font-heading-secondary);
+  font-family: var(--font-titles);
   font-size: 1.3rem;
   color: white;
 }
