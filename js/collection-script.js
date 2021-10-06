@@ -8,10 +8,11 @@ function setupCollectionPage() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
-    if (urlParams.has("page")) {
+    if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
+        getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
+        console.log("Setting up search page");
+    } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
-    } else if (urlParams.has("search_term")) {
-        getSearchResults(urlParams.get("search_term"));
     } else {
         getCollection();
     }
@@ -20,11 +21,12 @@ function setupCollectionPage() {
 }
 
 async function getCollection(pageNumber = 1) {
-    const URL = TMDB_URL + "discover/movie/" + "?api_key=" + TMDB_API_KEY + `&page=${pageNumber}`;
+    const URL = TMDB_URL + "discover/movie/?api_key=" + TMDB_API_KEY + `&page=${pageNumber}`;
     try {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
+        generatePageLinks(result.total_pages, result.page);
         displayResults(result);
     } catch (err) {
         console.error(err);
@@ -32,17 +34,29 @@ async function getCollection(pageNumber = 1) {
     }   
 }
 
+async function getSearchResults(searchTerm, pageNumber= 1) {
+    const URL = TMDB_URL + "search/movie?api_key=" + TMDB_API_KEY + `&query=${searchTerm}&page=${pageNumber}`;
+    try {
+        const response = await fetch(URL);
+        const result = await response.json();
+        console.log(result);
+        generatePageLinks(result.total_pages, result.page, searchTerm);
+        displayResults(result);
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+    
+}
+
 function displayResults(collection) {
     const resultTable = document.querySelector(".result-table");
-
-    generatePageLinks(collection.total_pages, collection.page);
-
     for (let movie of collection.results) {
         resultTable.innerHTML += buildCollectionItemHTML(movie);
     }
 }
 
-function generatePageLinks(size, currentPage) {
+function generatePageLinks(size, currentPage, searchKeyword = "") {
     const resultLinks = document.querySelector(".collection-page-links");
     console.log("generating links");
     console.log(resultLinks);
@@ -50,9 +64,9 @@ function generatePageLinks(size, currentPage) {
     for (let i = 1; i <= size; i++) {
         if (isBetween(i, currentPage-2, currentPage+2)) {
             if (i === currentPage) {
-                resultLinks.innerHTML += `<a href="./collection.html?page=${i}" class="active-collection-page">${i}</a>`
+                resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}" class="active-collection-page">${i}</a>`
             } else {
-                resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`;
+                resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}">${i}</a>`;
             }
             
             console.log("In range");
