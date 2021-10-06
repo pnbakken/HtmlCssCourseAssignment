@@ -10,7 +10,7 @@
         <title>Square Eyes | Collection</title>
 
         <script src="js/script.js" defer></script>
-        <script src="js/fetch-script.js" defer></script>
+        <script src="js/collection-script.js" defer></script>
 
         <!-- Hotjar Tracking Code for https://brave-einstein-119948.netlify.app/index.html -->
         <script>
@@ -34,7 +34,7 @@
                     <li><a href="./purchase.html">Tickets</a></li>
                     <li><a href="./account.html">Profile</a></li>
                 </ul>
-                <input type="text" name="search" class="cta search input" id="search-input" placeholder="Search…" />
+                <input type="text" name="search" class="cta search input" id="search-field" placeholder="Search…" />
             </nav>
        </header>
        <main class="collection-main">
@@ -57,6 +57,7 @@
                    <div class="search-result-display">
                        <div class="search-result-menu">
                             <h3>Results</h3>
+                            <div class="collection-page-links"></div>
                             <div>
                                 <select class="search-result-menu-item cta">
                                     <option value="">Sort By</option>
@@ -65,6 +66,7 @@
                                     <option value="alphabetical">Alphabetical</option>
                                 </select>
                             </div>
+                            
                        </div>
                        <div class="result-table">
                             <a href="./film-page.html" class="movie-poster">Movie Poster</a>

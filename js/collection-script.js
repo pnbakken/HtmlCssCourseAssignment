@@ -5,25 +5,43 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 const COLLECTION = getCollection(); // have this constant/variable to try to perform client side sorting
 console.log(COLLECTION);
 
-
-
-async function getCollection() {
-    const URL = TMDB_URL + "discover/movie/" + "?api_key=" + TMDB_API_KEY;
+async function getCollection(pageNumber = 1) {
+    const URL = TMDB_URL + "discover/movie/" + "?api_key=" + TMDB_API_KEY + `&page=${pageNumber}`;
     try {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
-        displayCollection(result);
+        displayResults(result);
     } catch (err) {
         console.error(err);
         return null;
     }   
 }
 
-function displayCollection(collection) {
+function displayResults(collection) {
     const resultTable = document.querySelector(".result-table");
+
+    generatePageLinks(collection.total_pages, collection.page);
+
     for (let movie of collection.results) {
         resultTable.innerHTML += buildCollectionItemHTML(movie);
+    }
+}
+
+function generatePageLinks(size, currentPage) {
+    const resultLinks = document.querySelector(".collection-page-links");
+    console.log("generating links");
+    console.log(resultLinks);
+
+    for (let i = 1; i <= size; i++) {
+        if (isBetween(i, currentPage-3, currentPage+3)) {
+            resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`;
+            console.log("In range");
+        }
+    }
+
+    function isBetween(x, min, max) {
+        return (x >= min && x <= max)
     }
 }
 
@@ -47,5 +65,6 @@ function getItemPosterImage(posterPath) {
 
 }
 
+function generateBreadCrumbLinks() {
 
-
+}
