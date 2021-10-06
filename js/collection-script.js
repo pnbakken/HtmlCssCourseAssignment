@@ -2,8 +2,22 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
-const COLLECTION = getCollection(); // have this constant/variable to try to perform client side sorting
-console.log(COLLECTION);
+setupCollectionPage();
+
+function setupCollectionPage() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    if (urlParams.has("page")) {
+        getCollection(urlParams.get("page"));
+    } else if (urlParams.has("search_term")) {
+        getSearchResults(urlParams.get("search_term"));
+    } else {
+        getCollection();
+    }
+    console.log(queryString);
+
+}
 
 async function getCollection(pageNumber = 1) {
     const URL = TMDB_URL + "discover/movie/" + "?api_key=" + TMDB_API_KEY + `&page=${pageNumber}`;
@@ -34,8 +48,13 @@ function generatePageLinks(size, currentPage) {
     console.log(resultLinks);
 
     for (let i = 1; i <= size; i++) {
-        if (isBetween(i, currentPage-3, currentPage+3)) {
-            resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`;
+        if (isBetween(i, currentPage-2, currentPage+2)) {
+            if (i === currentPage) {
+                resultLinks.innerHTML += `<a href="./collection.html?page=${i}" class="active-collection-page">${i}</a>`
+            } else {
+                resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`;
+            }
+            
             console.log("In range");
         }
     }
