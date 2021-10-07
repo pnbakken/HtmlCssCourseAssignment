@@ -51,24 +51,40 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
 
 function displayResults(collection) {
     const resultTable = document.querySelector(".result-table");
-    for (let movie of collection.results) {
-        resultTable.innerHTML += buildCollectionItemHTML(movie);
+    if (collection.results.length > 0) {
+        for (let movie of collection.results) {
+            resultTable.innerHTML += buildCollectionItemHTML(movie);
+        }
+    } else {
+        resultTable.innerHTML = "No results found";
     }
+    
 }
 
 function generatePageLinks(size, currentPage, searchKeyword = "") {
+
+    // Make this better
+
     const resultLinks = document.querySelector(".collection-page-links");
     console.log("generating links");
     console.log(resultLinks);
 
     for (let i = 1; i <= size; i++) {
+
         if (isBetween(i, currentPage-2, currentPage+2)) {
             if (i === currentPage) {
-                resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}" class="active-collection-page">${i}</a>`
+                if (searchKeyword !== "") {
+                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}" class="active-collection-page">${i}</a>`
+                } else {
+                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}" class="active-collection-page">${i}</a>`
+                }
             } else {
-                resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}">${i}</a>`;
+                if (searchKeyword !== "") {
+                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}">${i}</a>`
+                } else {
+                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`
+                }
             }
-            
             console.log("In range");
         }
     }
@@ -83,7 +99,7 @@ function buildCollectionItemHTML(item) {
     let imagePath = getItemPosterImage(item.poster_path);
 
     return `<div class="collection-item">
-                <a href="./film-page.html?id=${item.id}">
+                <a href="./film-page.html?movie_id=${item.id}">
                     <img src="${imagePath}" alt="${item.title} poster" class="collection-poster"/>
                 </a>
                 <p class="item-title">${item.title}</p>
@@ -98,6 +114,3 @@ function getItemPosterImage(posterPath) {
 
 }
 
-function generateBreadCrumbLinks() {
-
-}
