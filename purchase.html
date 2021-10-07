@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles/new-styles.css" />
         <title>Square Eyes | Purchase Pay-Per-View</title>
-        <script src="js/script.js" defer></script>
+        <script src="./js/script.js" defer></script>
+        <script src="./js/pay-per-view.js" defer></script>
         <!-- Hotjar Tracking Code for https://brave-einstein-119948.netlify.app/index.html -->
         <script>
             (function(h,o,t,j,a,r){
@@ -41,14 +42,15 @@
            <div class="purchase-display">
                <div class="purchase-details">
                    <div class="product-info">
-                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
-                        <div class="product-info-text">
-                            <span class="movie-title">Movie Poster</span>
-                            <span class="movie-price">999nok</span>
-                        </div> 
+                        <div class="purchase-poster"></div>
+                        
                    </div>
                </div>
                 <form id="payment-info" action="./film-page.html" method="GET">
+                    <div class="product-info-text">
+                        <span class="movie-title">Movie Poster</span>
+                        <span class="movie-price">999nok</span>
+                    </div> 
                     <h2>Payment</h2>
                     <input type="text" class="cta input" name="card-number" id="card-number" placeholder="Card number"/>
                     <input type="text" class="cta input" name="valid-code" id="valid-code" placeholder="Validation code" />

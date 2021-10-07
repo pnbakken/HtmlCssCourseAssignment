@@ -73,3 +73,7 @@ img.collection-poster {
 #film-poster {
     max-width: 80%;
 }
+
+.purchase-poster>img {
+    max-width: 80%;
+}

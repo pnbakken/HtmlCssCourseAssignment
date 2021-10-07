@@ -29,6 +29,7 @@ function setupMoviePage(movie) {
     setOverview(movie.overview);
     setRating(movie.vote_average, movie.vote_count);
     setTagline(movie.tagline);
+    setTicketLink(movie.poster_path, movie.title);
 
     function setPoster(url) {
         const posterUrl = TMDB_IMG_URL + "p/w500" + url;
@@ -63,6 +64,10 @@ function setupMoviePage(movie) {
 
     function setTagline(tagline) {
         document.querySelector("#movie-tagline").innerHTML = `<span id="tagline">${tagline}</span>`;
+    }
+
+    function setTicketLink(posterPath, title) {
+        document.querySelector("#film-ticket").href += `?poster_path=${posterPath}&title=${title}`;
     }
 }
 
