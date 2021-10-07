@@ -22,6 +22,7 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> <!-- I need this to work around https problems on the live site-->
     </head>
     <body>
         <header>
@@ -42,7 +43,7 @@
         <div class="filmpage-content">
                 <section class="film-box">
                     <div class="fact-box">
-                        <div id="poster-box"><img src="./images/film-page/poster-scaled.jpg" alt="A Field In England film poster"></div>
+                        <div id="poster-box"><img src="./images/film-page/poster-scaled.jpg" alt="A Field In England film poster" id="film-poster"></div>
                         <span id="fact-box-title">A Field In England</span>
                         <div class="fact-box-facts">
                             <ul>

@@ -10,13 +10,25 @@ if (URL_PARAMS.has("movie_id")) {
 }
 
 async function fetchMovie(movieID) {
-    const URL = TMDB_URL + "movie/" + movieID + "?api_key=" + TMDB_API_KEY;
+    const url = TMDB_URL + "movie/" + movieID + "?api_key=" + TMDB_API_KEY;
     console.log("fetching");
     try {
-        const response = await fetch(URL);
+        const response = await fetch(url);
         const result = await response.json();
         console.log(result);
+        setupMoviePage(result);
     } catch (err) {
         console.log(err);
+    }
+}
+
+function setupMoviePage(movie) {
+
+    setPoster(movie.poster_path);
+
+    function setPoster(url) {
+        const posterUrl = TMDB_IMG_URL + "p/w500" + url;
+        const poster = document.querySelector("#film-poster");
+        poster.src = posterUrl;
     }
 }
