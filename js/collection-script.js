@@ -1,6 +1,6 @@
 const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
-const TMDB_URL = "http://api.themoviedb.org/3/";
-const TMDB_IMG_URL = "http://image.tmdb.org/t/";
+const TMDB_URL = "https://api.themoviedb.org/3/";
+const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
 setupCollectionPage();
 
