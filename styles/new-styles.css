@@ -9,7 +9,6 @@
 .collection-page-links {
     display: flex;
     grid-gap: 7px;
-    
 }
 
 .collection-page-links>a {

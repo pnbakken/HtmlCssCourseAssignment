@@ -50,13 +50,19 @@ function validatePurchaseInfo(cardNumber, validCode) {
     let valid = true;
     MESSAGE_BOX.innerHTML = "";
     if (!cardRegex.test(cardNumber)) {
+        CARD_NUMBER.classList.add("invalid");
         MESSAGE_BOX.innerHTML += `<p class="error">Card number seems to be invalid. (Use any combination of 16 digits eg. 0000 0000 0000 0000)</p>`;
         valid = false;
+    } else {
+        CARD_NUMBER.classList.remove("invalid");
     }
 
     if (!validCode) {
+        VALID_CODE.classList.add("invalid");
         MESSAGE_BOX.innerHTML += `<p class="error">Please give me a nice compliment</p>`;
         valid = false;
+    } else {
+        VALID_CODE.classList.remove("invalid");
     }
 
     return valid;
