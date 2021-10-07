@@ -27,7 +27,7 @@ async function getCollection(pageNumber = 1) {
         const result = await response.json();
         console.log(result);
         generatePageLinks(result.total_pages, result.page);
-        displayResults(result);
+        displayResults(result, "Collection");
     } catch (err) {
         console.error(err);
         return null;
@@ -36,12 +36,13 @@ async function getCollection(pageNumber = 1) {
 
 async function getSearchResults(searchTerm, pageNumber= 1) {
     const URL = TMDB_URL + "search/movie?api_key=" + TMDB_API_KEY + `&query=${searchTerm}&page=${pageNumber}`;
+    
     try {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
         generatePageLinks(result.total_pages, result.page, searchTerm);
-        displayResults(result);
+        displayResults(result, `Results for "${searchTerm}"`);
     } catch (err) {
         console.error(err);
         return null;
@@ -49,16 +50,21 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
     
 }
 
-function displayResults(collection) {
+function displayResults(collection, heading) {
     const resultTable = document.querySelector(".result-table");
+    setCollectionHeading(heading);
     if (collection.results.length > 0) {
         for (let movie of collection.results) {
             resultTable.innerHTML += buildCollectionItemHTML(movie);
         }
     } else {
-        resultTable.innerHTML = "No results found";
+        resultTable.innerHTML = `<p class="no-result">No results found</p>`;
     }
     
+}
+
+function setCollectionHeading(heading) {
+    document.querySelector(".collection-heading").innerHTML = `<h3>${heading}</h3>`;
 }
 
 function generatePageLinks(size, currentPage, searchKeyword = "") {
