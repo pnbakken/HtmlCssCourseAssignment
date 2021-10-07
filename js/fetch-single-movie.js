@@ -28,6 +28,8 @@ function setupMoviePage(movie) {
     setPoster(movie.poster_path);
     setReleaseYear(movie.release_date);
     setOverview(movie.overview);
+    setRating(movie.vote_average, movie.vote_count);
+    setTagline(movie.tagline);
 
     function setPoster(url) {
         const posterUrl = TMDB_IMG_URL + "p/w500" + url;
@@ -54,4 +56,25 @@ function setupMoviePage(movie) {
     function setOverview(overview) {
         document.querySelector("#movie-overview").innerHTML = `<p>${overview}</p>`;
     }
+
+    function setRating(rating, likes) {
+        document.querySelector("#rating").innerText = `Rating: ${rating}`;
+        document.querySelector("#users-liked").innerText = `Liked by ${likes} users`;
+    }
+
+    function setTagline(tagline) {
+        document.querySelector("#movie-tagline").innerHTML = `<span class="tagline">${tagline}</span>`;
+    }
+}
+
+
+
+
+
+function pageLoading(container) {
+    container.innerHTML = `<div class="loader"></div><p>Loading</p>`;
+}
+
+function pageReady(container) {
+    container.innerHTML = "";
 }

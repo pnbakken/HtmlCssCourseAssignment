@@ -2,12 +2,14 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
+const RESULT_TABLE = document.querySelector(".result-table");
+
 setupCollectionPage();
 
 function setupCollectionPage() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-
+    pageLoading(RESULT_TABLE);
     if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
         getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
         console.log("Setting up search page");
@@ -26,6 +28,7 @@ async function getCollection(pageNumber = 1) {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
+        pageReady(RESULT_TABLE);
         generatePageLinks(result.total_pages, result.page);
         displayResults(result, "Collection");
     } catch (err) {
@@ -41,6 +44,7 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
+        pageReady(RESULT_TABLE);
         generatePageLinks(result.total_pages, result.page, searchTerm);
         displayResults(result, `Results for "${searchTerm}"`);
     } catch (err) {
@@ -51,14 +55,14 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
 }
 
 function displayResults(collection, heading) {
-    const resultTable = document.querySelector(".result-table");
+    
     setCollectionHeading(heading);
     if (collection.results.length > 0) {
         for (let movie of collection.results) {
-            resultTable.innerHTML += buildCollectionItemHTML(movie);
+            RESULT_TABLE.innerHTML += buildCollectionItemHTML(movie);
         }
     } else {
-        resultTable.innerHTML = `<p class="no-result">No results found</p>`;
+        RESULT_TABLE.innerHTML = `<p class="no-result">No results found</p>`;
     }
     
 }
@@ -118,3 +122,10 @@ function getItemPosterImage(posterPath) {
 
 }
 
+function pageLoading(container) {
+    container.innerHTML = `<div class="loader"></div><p>Loading</p>`;
+}
+
+function pageReady(container) {
+    container.innerHTML = "";
+}
