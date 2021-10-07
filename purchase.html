@@ -46,16 +46,19 @@
                         
                    </div>
                </div>
-                <form id="payment-info" action="./film-page.html" method="GET">
+                <form id="payment-info">
+                    <h2>Payment</h2>
                     <div class="product-info-text">
                         <span class="movie-title">Movie Poster</span>
                         <span class="movie-price">999nok</span>
                     </div> 
-                    <h2>Payment</h2>
                     <input type="text" class="cta input" name="card-number" id="card-number" placeholder="Card number"/>
-                    <input type="text" class="cta input" name="valid-code" id="valid-code" placeholder="Validation code" />
+                    <input type="text" class="cta input" name="valid-code" id="valid-code" placeholder="Give me a compliment" />
                     <input type="submit" class="cta purchase" id="submit" value="Submit" />
+
+                    <div id="purchase-message"></div>
                 </form>
+                
            </div>
        </main>
        
