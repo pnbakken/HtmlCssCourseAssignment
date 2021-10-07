@@ -69,9 +69,11 @@ function setCollectionHeading(heading) {
 
 function generatePageLinks(size, currentPage, searchKeyword = "") {
 
-    // Make this better
+    // This function has maybe been the most complicated and stupid solution of the whole project so far
 
     const resultLinks = document.querySelector(".collection-page-links");
+
+    resultLinks.innerHTML = "Page: ";
 
     for (let i = 1; i <= size; i++) {
 
@@ -91,6 +93,8 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
             }
         }
     }
+
+    resultLinks.innerHTML += ` of ${size}`;
 
     function isBetween(x, min, max) {
         return (x >= min && x <= max)

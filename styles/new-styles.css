@@ -6,6 +6,24 @@
     align-items: flex-end;
 }
 
+.collection-page-links {
+    display: flex;
+    grid-gap: 5px;
+
+}
+
+.collection-page-links>a {
+    text-decoration: none;
+    color: var(--color-font-main);
+}
+.collection-page-links>a:hover {
+    text-decoration: underline;
+    color: var(--color-links);
+}
+a.active-collection-page {
+    color: var(--color-links);
+}
+
 .result-table {
     display: flex;
     flex-flow: row wrap;
