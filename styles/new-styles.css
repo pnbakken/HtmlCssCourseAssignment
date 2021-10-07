@@ -1,0 +1,16 @@
+@import url("./styles.css");
+
+.collection-item {
+    max-width: 45%;
+}
+img.collection-poster {
+    max-width: 100%;
+    max-height: 240px;
+    overflow: hidden;
+}
+
+@media (min-width: 425px) {
+    .collection-item {
+        max-width: 30%;
+    }
+}
