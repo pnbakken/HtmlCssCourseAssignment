@@ -8,13 +8,15 @@
 
 .collection-page-links {
     display: flex;
-    grid-gap: 5px;
-
+    grid-gap: 7px;
+    
 }
 
 .collection-page-links>a {
     text-decoration: none;
     color: var(--color-font-main);
+    font-size: 1.2rem;
+    font-family: futura;
 }
 .collection-page-links>a:hover {
     text-decoration: underline;
