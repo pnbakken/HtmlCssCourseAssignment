@@ -104,12 +104,11 @@ function buildCollectionItemHTML(item) {
 
     let imagePath = getItemPosterImage(item.poster_path);
 
-    return `<div class="collection-item">
+    return `<div class="collection-item"> 
                 <a href="./film-page.html?movie_id=${item.id}">
-                    <img src="${imagePath}" alt="${item.title} poster" class="collection-poster"/>
+                    <div><img src="${imagePath}" alt="${item.title} poster" class="collection-poster"/></div>
                 </a>
                 <p class="item-title">${item.title}</p>
-                <p>
             </div>`;
 }
 

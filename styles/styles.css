@@ -511,6 +511,7 @@
   display: flex;
   flex-flow: column;
   grid-gap: 10px;
+  max-width: 100%;
 }
 
 .search-option {
@@ -525,12 +526,14 @@
   flex-flow: column;
   grid-gap: 50px;
   padding: 10px;
+  max-width: 100%;
 }
 
 .search-result-menu {
   display: flex;
   grid-gap: 35px;
   justify-content: space-between;
+  max-width: 100%;
 }
 
 .search-result-menu-item {
@@ -538,14 +541,6 @@
   border: 2px solid var(--color-input-border);
 }
 
-.result-table {
-  display: flex;
-  flex-flow: row wrap;
-  grid-gap: 30px;
-  align-items: baseline;
-  justify-self: center;
-  justify-content: baseline;
-}
 
 @media (min-width: 1024px) {
   .search-box {
