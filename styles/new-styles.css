@@ -58,3 +58,8 @@ img.collection-poster {
         max-width: 20%;
     }
 }
+
+.disabled {
+    text-decoration: line-through;
+    visibility:hidden;
+}

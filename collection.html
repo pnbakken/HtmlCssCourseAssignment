@@ -46,15 +46,15 @@
            <div class="search-box">
                <section class="search-panel">
                 <form-field id="search-options" action="#" method="GET">
-                    <input type="text" name="search" class="cta search input" placeholder="Title…" />
-                    <input type="text" name="search" class="cta search input" placeholder="Director" />
-                    <select class="cta search-option" name="genre" id="genre">
+                    <input type="text" name="search" class="cta search input disabled" placeholder="Title…" disabled="true"/>
+                    <input type="text" name="search" class="cta search input disabled" placeholder="Director" disabled="true"/>
+                    <select class="cta search-option disabled" name="genre" id="genre" disabled="true">
                         <option value="">Select Genre</option>
                         <option value="horror">Horror</option>
                         <option value="action">Action</option>
                         <option value="comedy">Comedy</option>
                     </select>
-                    <div><input type="checkbox" name="filter-free-films" id="filter-free-films" value="free"><label for="filter-free-films">Free films </label></div>
+                    <div><input type="checkbox" name="filter-free-films" id="filter-free-films" value="free" disabled="true" class="disabled"><label for="filter-free-films"></label></div>
                 </form-field>
                </section>
                <section class="search-results">
@@ -62,7 +62,7 @@
                        <div class="search-result-menu">
                             <div class="collection-heading"></div>
                             <div>
-                                <select class="search-result-menu-item cta">
+                                <select class="search-result-menu-item cta disabled" disabled="true">
                                     <option value="">Sort By</option>
                                     <option value="top-rated">Top Rated</option>
                                     <option value="activity">Most Activity</option>
