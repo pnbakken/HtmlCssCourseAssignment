@@ -10,7 +10,7 @@
     display: flex;
     flex-flow: row wrap;
     grid-gap: 30px;
-    align-items: flex-start;
+    align-items: baseline;
     justify-self: center;
     justify-content: space-evenly;
     max-width: 100%;
@@ -21,7 +21,7 @@
 }
 
 .collection-item>a>div {
-    max-width: 90%;
+    max-width: 100%;
 }
 
 img.collection-poster {

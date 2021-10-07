@@ -72,8 +72,6 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
     // Make this better
 
     const resultLinks = document.querySelector(".collection-page-links");
-    console.log("generating links");
-    console.log(resultLinks);
 
     for (let i = 1; i <= size; i++) {
 
@@ -91,7 +89,6 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
                     resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`
                 }
             }
-            console.log("In range");
         }
     }
 
