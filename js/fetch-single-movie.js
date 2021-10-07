@@ -11,7 +11,6 @@ if (URL_PARAMS.has("movie_id")) {
 
 async function fetchMovie(movieID) {
     const url = TMDB_URL + "movie/" + movieID + "?api_key=" + TMDB_API_KEY;
-    console.log("fetching");
     try {
         const response = await fetch(url);
         const result = await response.json();

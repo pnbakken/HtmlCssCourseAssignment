@@ -38,13 +38,10 @@ a.active-collection-page {
     max-width: 80%;
 }
 
-.collection-item>a>div {
-    max-width: 100%;
-}
-
-img.collection-poster {
-    max-width: 100%;
-    overflow: hidden;
+@media (min-width: 425px) {
+    .collection-item {
+        max-width: 45%;
+    }
 }
 
 @media (min-width: 728px) {
@@ -57,6 +54,15 @@ img.collection-poster {
     .collection-item {
         max-width: 20%;
     }
+}
+
+.collection-item>a>div {
+    max-width: 100%;
+}
+
+img.collection-poster {
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .disabled {
