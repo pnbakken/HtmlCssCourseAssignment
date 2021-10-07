@@ -1,64 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A streaming website by and for those who love cinema." />
-    <meta name="keywords" content="Independent film, Streaming, Pay-Per-View, DIY" />
-    <meta name="author" content="Pål N. Bakken" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css" type="text/css" />
-    <title>Square Eyes | Connecting Film Lovers</title>
-    <script src="js/script.js" defer></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Some different text than the front page description" />
+        <meta name="keywords" content="Independent film, Streaming, Pay-Per-View, DIY, cinephiles, film enthusiast, " />
+        <meta name="author" content="Pål N. Bakken" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/styles.css" type="text/css" />
+        <title>Square Eyes | Main Page</title>
 
-    <!-- Hotjar Tracking Code for https://brave-einstein-119948.netlify.app/index.html -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:2608857,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-</head>
+        <script src="./js/script.js" defer></script>
+
+        <!-- Hotjar Tracking Code for https://brave-einstein-119948.netlify.app/index.html -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:2608857,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+    </head>
 <body>
-    <a href="./main.html" id="frontpage-main-link">Home</a>
-    <header class="frontpage-header">
-        <img src="./images/main_logo.png" alt="Square Eyes logo" id="frontpage-logo" />
-    </header>
-
-    <main class="frontpage">
-        <h1>The Quick Brown Fox Jumped Over A Lazy Dog.</h1>
-        <section>
-            <form action="./main.html" method="GET" class="frontpage-login">
-                <input type="email" name="email" id="frontpage-email" class="cta" placeholder="Email address" />
-                <div>
-                    <input type="submit" name="signup" id="signup" value="Sign Up" class="cta" />
-                    <input type="submit" name="login" id="login" value="Log In" class="cta" />
+   <header>
+        <nav class="nav-main">
+            <span id="logo-nav"><a href="./index.html"><img src="./images/logo-nav.png" alt="Square Eyes smaller logo" /></a></span>
+            <ul>
+                <li><a href="./index.html" class="active">Home</a></li>
+                <li><a href="./collection.html">Collection</a></li>
+                <li><a href="./purchase.html">Tickets</a></li>
+                <li><a href="./account.html">Profile</a></li>
+            </ul>
+            <div class="search-div">
+                <input type="text" name="search" class="cta search input" id="search-field" placeholder="Search…" />
+                <a href="./collection.html" id="search-button">Search</a>
+            </div>
+        </nav>
+   </header>
+   
+   <main id="mainpage-main">
+       <h1>Home Page</h1>
+       <div class="mainpage-content">
+            <section class="featured-content-section">
+                <div class="feature-presentation">
+                        <div class="present-text">
+                            <h2>Headline About a Theme</h2>
+                            <img src="./images/content-image.jpg" alt="Hand holding clapperboard" class="content-section-image" />
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores animi facilis, velit molestiae beatae cumque at sequi sapiente nostrum accusamus impedit commodi quod quasi omnis laboriosam voluptatem! Sed, veniam.</p>
+                        </div>
+                        <div class="calls">
+                            <a href="./register.html" class="cta">Sign Up</a>
+                            <a href="./purchase.html" class="cta purchase">Tickets</a>
+                        </div>
                 </div>
-            </form>
-        </section>
-        <section id="frontpage-info">
-            <div class="poster-scroller">
-                <span class="scroller-title">Movies to lure in a new user:</span>
-                <section>
-                    <a href="./film-page.html" class="movie-poster">Movie Poster</a>
-                    <a href="./film-page.html" class="movie-poster">Movie Poster</a>
-                    <a href="./film-page.html" class="movie-poster">Movie Poster</a>
-                    <a href="./film-page.html" class="movie-poster">Movie Poster</a>
-                </section>
-            </div>
-            <div id="frontpage-intro">
-                <p>
-                    Short text summarising the concept of user–created
-                    content and pay-per-view streaming. Followed
-                    by a call to action to be a part of a community.
-                </p>
-                <a href="./register.html" class="cta">Sign Up</a>
-            </div>
-        </section>
-    </main>
+                
+                <div class="poster-scroller">
+                        <span class="scroller-title">Movies related to the theme:</span>
+                        <section>
+                            <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                            <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                            <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                            <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                            <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                            <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        </section>
+                    </div>
+            </section>
+            <section class="featured-content-section">
+                <div class="feature-presentation">
+                    <div class="present-text">
+                        <h2>Headline About a Theme</h2>
+                        <img src="./images/content-image.jpg" alt="Hand holding clapperboard. Desert locale" class="content-section-image" />
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores animi facilis, velit molestiae beatae cumque at sequi sapiente nostrum accusamus impedit commodi quod quasi omnis laboriosam voluptatem! Sed, veniam.</p>
+                    </div>
+                    <div class="calls">
+                    <a href="./register.html" class="cta">Sign Up</a>
+                    <a href="./purchase.html" class="cta purchase">Tickets</a>
+                    </div>
+                </div>
+                
+                <div class="poster-scroller">
+                    <span class="scroller-title">Movies related to the theme:</span>
+                    <section>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                    </section>
+                </div>
+            </section>
+            <section class="featured-content-section">
+                <div class="feature-presentation">
+                    <div class="present-text">
+                        <h2>Headline About a Theme</h2>
+                        <img src="./images/content-image.jpg" alt="Hand holding clapperboard. Desert locale" class="content-section-image">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores animi facilis, velit molestiae beatae cumque at sequi sapiente nostrum accusamus impedit commodi quod quasi omnis laboriosam voluptatem! Sed, veniam.</p>
+                    </div>
+                    <div class="calls">
+                    <a href="./register.html" class="cta">Sign Up</a>
+                    <a href="./purchase.html" class="cta purchase">Tickets</a>
+                    </div>
+                </div>
+                
+                <div class="poster-scroller">
+                    <span class="scroller-title">Movies related to the theme:</span>
+                    <section>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                        <a href="./film-page.html" class="movie-poster">Movie Poster</a>
+                    </section>
+                </div>
+            </section>
+</div>
+
+   </main>
+   <footer>
+       <span>&copy2021</span>
+   </footer>
 </body>
 </html>
