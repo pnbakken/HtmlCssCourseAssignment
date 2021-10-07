@@ -63,3 +63,7 @@ img.collection-poster {
     text-decoration: line-through;
     visibility:hidden;
 }
+
+#film-poster {
+    max-width: 80%;
+}

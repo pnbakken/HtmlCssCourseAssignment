@@ -77,7 +77,7 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
 
     for (let i = 1; i <= size; i++) {
 
-        if (isBetween(i, currentPage-2, currentPage+2)) {
+        if (inRange(i, currentPage-2, currentPage+2)) {
             if (i === currentPage) {
                 if (searchKeyword !== "") {
                     resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}" class="active-collection-page">${i}</a>`
@@ -96,7 +96,7 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
 
     resultLinks.innerHTML += ` of ${size}`;
 
-    function isBetween(x, min, max) {
+    function inRange(x, min, max) {
         return (x >= min && x <= max)
     }
 }
@@ -112,8 +112,6 @@ function buildCollectionItemHTML(item) {
                 <p class="item-title">${item.title}</p>
             </div>`;
 }
-
-
 
 function getItemPosterImage(posterPath) {
     return TMDB_IMG_URL + "p/w500/" + posterPath;
