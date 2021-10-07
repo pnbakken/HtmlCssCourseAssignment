@@ -24,11 +24,34 @@ async function fetchMovie(movieID) {
 
 function setupMoviePage(movie) {
 
+    setTitle(movie.title);
     setPoster(movie.poster_path);
+    setReleaseYear(movie.release_date);
+    setOverview(movie.overview);
 
     function setPoster(url) {
         const posterUrl = TMDB_IMG_URL + "p/w500" + url;
         const poster = document.querySelector("#film-poster");
         poster.src = posterUrl;
+    }
+
+    function setTitle(title) {
+        document.querySelector("title").innerText += title;
+        document.querySelector("#fact-box-title").innerText = title;
+    }
+
+    function setReleaseYear(releaseDate) {
+
+        const year = extractYear(releaseDate);
+        document.querySelector("#year").innerText = year;
+        
+        function extractYear(date) {
+            const dates = date.split("-");
+            return dates[0];
+        }
+    }
+
+    function setOverview(overview) {
+        document.querySelector("#movie-overview").innerHTML = `<p>${overview}</p>`;
     }
 }
