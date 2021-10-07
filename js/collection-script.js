@@ -75,30 +75,30 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
 
     // This function has maybe been the most complicated and stupid solution of the whole project so far
 
-    const resultLinks = document.querySelector(".collection-page-links");
-
-    resultLinks.innerHTML = "Page: ";
+    let pageLinkHTML = "Page: ";
 
     for (let i = 1; i <= size; i++) {
 
         if (inRange(i, currentPage-2, currentPage+2)) {
             if (i === currentPage) {
                 if (searchKeyword !== "") {
-                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}" class="active-collection-page">${i}</a>`
+                    pageLinkHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}" class="active-collection-page">${i}</a>`
                 } else {
-                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}" class="active-collection-page">${i}</a>`
+                    pageLinkHTML += `<a href="./collection.html?page=${i}" class="active-collection-page">${i}</a>`
                 }
             } else {
                 if (searchKeyword !== "") {
-                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}">${i}</a>`
+                    pageLinkHTML += `<a href="./collection.html?page=${i}&search_term=${searchKeyword}">${i}</a>`
                 } else {
-                    resultLinks.innerHTML += `<a href="./collection.html?page=${i}">${i}</a>`
+                    pageLinkHTML += `<a href="./collection.html?page=${i}">${i}</a>`
                 }
             }
         }
     }
+    pageLinkHTML += ` of ${size}`;
 
-    resultLinks.innerHTML += ` of ${size}`;
+    document.querySelector("#links-top").innerHTML = pageLinkHTML;
+    document.querySelector("#links-bottom").innerHTML = pageLinkHTML;
 
     function inRange(x, min, max) {
         return (x >= min && x <= max)

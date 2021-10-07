@@ -62,7 +62,7 @@ function setupMoviePage(movie) {
     }
 
     function setTagline(tagline) {
-        document.querySelector("#movie-tagline").innerHTML = `<span class="tagline">${tagline}</span>`;
+        document.querySelector("#movie-tagline").innerHTML = `<span id="tagline">${tagline}</span>`;
     }
 }
 
