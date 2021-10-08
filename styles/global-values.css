@@ -101,7 +101,8 @@ main {
   display: grid;
   grid-template-rows: repeat();
   grid-gap: 5px;
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
 }
 
@@ -110,6 +111,7 @@ main {
   flex-flow: row wrap;
   grid-gap: 15px;
   justify-content: center;
+  align-items: center;
 }
 
 .poster-scroller .scroller-title {

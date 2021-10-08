@@ -25,6 +25,7 @@ function setupMoviePage(movie) {
 
     setTitle(movie.title);
     setPoster(movie.poster_path);
+    setBackdrop(movie.backdrop_path);
     setReleaseYear(movie.release_date);
     setOverview(movie.overview);
     setRating(movie.vote_average, movie.vote_count);
@@ -35,6 +36,11 @@ function setupMoviePage(movie) {
         const posterUrl = TMDB_IMG_URL + "p/w500" + url;
         const poster = document.querySelector("#film-poster");
         poster.src = posterUrl;
+    }
+
+    function setBackdrop(url) {
+        const backdropUrl = TMDB_IMG_URL + "t/p/original" + url;
+        document.querySelector("#movie-backdrop").src = backdropUrl;
     }
 
     function setTitle(title) {

@@ -88,6 +88,12 @@ img.collection-poster {
     max-width: 25%;
 }
 
+@media (min-width: 1024px) {
+    .index-list-item {
+        max-width: 30%;
+    }
+}
+
 .index-list-item img {
     max-width: 100%;
 }
