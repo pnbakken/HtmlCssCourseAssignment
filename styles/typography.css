@@ -65,9 +65,13 @@ p {
   margin-bottom: 15px;
 }
 
-#fact-box-title {
-  font-family: var(--font-main-heading);
-  font-size: 1.5rem;
+.item-title {
+  font-family: futura, sans-serif;
+  font-size: 1.6rem;
+}
+
+.collection-title {
+  font-size: 1.2rem;
 }
 
 #tagline {
@@ -75,6 +79,11 @@ p {
   font-size: 1.1rem;
   font-style: italic;
   color: white;
+}
+
+.item-rating {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .movie-title {

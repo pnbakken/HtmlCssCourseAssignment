@@ -113,7 +113,10 @@ function buildCollectionItemHTML(item) {
                 <a href="./film-page.html?movie_id=${item.id}">
                     <div><img src="${imagePath}" alt="${item.title} poster" class="collection-poster"/></div>
                 </a>
-                <p class="item-title">${item.title}</p>
+                <div class"collection-itemq-details">
+                    <p class="item-title collection-title">${item.title}</p>
+                    <p>Rating: <span class="item-rating">${item.vote_average}</p>
+                </div>
             </div>`;
 }
 

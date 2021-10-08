@@ -66,6 +66,11 @@ img.collection-poster {
     overflow: hidden;
 }
 
+.collection-item-details {
+    display: flex;
+    background: green;
+}
+
 .disabled {
     text-decoration: line-through;
     visibility:hidden;

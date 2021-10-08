@@ -39,7 +39,7 @@ function setupMoviePage(movie) {
 
     function setTitle(title) {
         document.querySelector("title").innerText += title;
-        document.querySelector("#fact-box-title").innerText = title;
+        document.querySelector(".item-title").innerText = title;
     }
 
     function setReleaseYear(releaseDate) {
