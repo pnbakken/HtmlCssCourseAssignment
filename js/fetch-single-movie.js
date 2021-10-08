@@ -24,23 +24,27 @@ async function fetchMovie(movieID) {
 function setupMoviePage(movie) {
 
     setTitle(movie.title);
-    setPoster(movie.poster_path);
-    setBackdrop(movie.backdrop_path);
+    setPoster(movie.poster_path, movie.title);
+    setBackdrop(movie.backdrop_path, movie.title);
     setReleaseYear(movie.release_date);
     setOverview(movie.overview);
     setRating(movie.vote_average, movie.vote_count);
     setTagline(movie.tagline);
     setTicketLink(movie.poster_path, movie.title);
 
-    function setPoster(url) {
+    function setPoster(url, title) {
         const posterUrl = TMDB_IMG_URL + "p/w500" + url;
         const poster = document.querySelector("#film-poster");
         poster.src = posterUrl;
+        poster.alt = `Poster for ${title}`;
+
     }
 
-    function setBackdrop(url) {
+    function setBackdrop(url, title) {
         const backdropUrl = TMDB_IMG_URL + "t/p/original" + url;
-        document.querySelector("#movie-backdrop").src = backdropUrl;
+        const backdrop = document.querySelector("#movie-backdrop");
+        backdrop.src = backdropUrl;
+        backdrop.alt = `Backdrop for ${title}`;
     }
 
     function setTitle(title) {
