@@ -83,3 +83,11 @@ img.collection-poster {
 .purchase-poster>img {
     max-width: 80%;
 }
+
+.index-list-item {
+    max-width: 25%;
+}
+
+.index-list-item img {
+    max-width: 100%;
+}

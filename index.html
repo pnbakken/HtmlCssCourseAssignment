@@ -11,6 +11,7 @@
         <title>Square Eyes | Main Page</title>
 
         <script src="./js/script.js" defer></script>
+        <script src="./js/fetch-list.js" defer></script>
 
         <!-- Hotjar Tracking Code for https://brave-einstein-119948.netlify.app/index.html -->
         <script>
@@ -23,6 +24,7 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> <!-- I need this to work around https problems on the live site-->
     </head>
 <body>
    <header>
@@ -47,7 +49,7 @@
             <section class="featured-content-section">
                 <div class="feature-presentation">
                         <div class="present-text">
-                            <h2>Headline About a Theme</h2>
+                            <h2>Best Dramas of 2021</h2>
                             <img src="./images/content-image.jpg" alt="Hand holding clapperboard" class="content-section-image" />
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores animi facilis, velit molestiae beatae cumque at sequi sapiente nostrum accusamus impedit commodi quod quasi omnis laboriosam voluptatem! Sed, veniam.</p>
                         </div>
@@ -58,8 +60,8 @@
                 </div>
                 
                 <div class="poster-scroller">
-                        <span class="scroller-title">Movies related to the theme:</span>
-                        <section>
+                        <span class="scroller-title">Dramas</span>
+                        <section id="scroller-items-1">
                             <a href="./film-page.html" class="movie-poster">Movie Poster</a>
                             <a href="./film-page.html" class="movie-poster">Movie Poster</a>
                             <a href="./film-page.html" class="movie-poster">Movie Poster</a>
@@ -72,7 +74,7 @@
             <section class="featured-content-section">
                 <div class="feature-presentation">
                     <div class="present-text">
-                        <h2>Headline About a Theme</h2>
+                        <h2>Science Fiction headline</h2>
                         <img src="./images/content-image.jpg" alt="Hand holding clapperboard. Desert locale" class="content-section-image" />
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores animi facilis, velit molestiae beatae cumque at sequi sapiente nostrum accusamus impedit commodi quod quasi omnis laboriosam voluptatem! Sed, veniam.</p>
                     </div>
@@ -84,7 +86,7 @@
                 
                 <div class="poster-scroller">
                     <span class="scroller-title">Movies related to the theme:</span>
-                    <section>
+                    <section id="scroller-items-2">
                         <a href="./film-page.html" class="movie-poster">Movie Poster</a>
                         <a href="./film-page.html" class="movie-poster">Movie Poster</a>
                         <a href="./film-page.html" class="movie-poster">Movie Poster</a>
@@ -97,7 +99,7 @@
             <section class="featured-content-section">
                 <div class="feature-presentation">
                     <div class="present-text">
-                        <h2>Headline About a Theme</h2>
+                        <h2>Spooky October headline</h2>
                         <img src="./images/content-image.jpg" alt="Hand holding clapperboard. Desert locale" class="content-section-image">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores animi facilis, velit molestiae beatae cumque at sequi sapiente nostrum accusamus impedit commodi quod quasi omnis laboriosam voluptatem! Sed, veniam.</p>
                     </div>
@@ -109,7 +111,7 @@
                 
                 <div class="poster-scroller">
                     <span class="scroller-title">Movies related to the theme:</span>
-                    <section>
+                    <section id="scroller-items-3">
                         <a href="./film-page.html" class="movie-poster">Movie Poster</a>
                         <a href="./film-page.html" class="movie-poster">Movie Poster</a>
                         <a href="./film-page.html" class="movie-poster">Movie Poster</a>
