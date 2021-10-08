@@ -97,3 +97,7 @@ img.collection-poster {
 .index-list-item img {
     max-width: 100%;
 }
+
+.invalid {
+    border-color: var(--color-links);
+  }

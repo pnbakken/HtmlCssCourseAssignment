@@ -59,8 +59,9 @@ main {
 }
 
 .purchase {
-  border-color: var(--color-links);
+  border-color: #70c269;
 }
+
 
 .movie-poster {
   /* I might change this to images before I submit, I just wanted to see if and how I could represent the posters using only CSS
