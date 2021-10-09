@@ -132,3 +132,19 @@ function pageLoading(container) {
 function pageReady(container) {
     container.innerHTML = "";
 }
+
+const titleSearchButton = document.querySelector("#title-search-button");
+const titleSearchField = document.querySelector("#title-search");
+titleSearchField.addEventListener("keyup", (event) => {
+    console.log("keyup");
+ if (event.keyCode === 13 && titleSearchField.value.trim()) {
+     console.log("Enter entered");
+     event.preventDefault();
+     location.href = `./collection.html?search_term=${titleSearchField.value.trim().toLowerCase()}`;
+ }
+});
+titleSearchButton.onclick = () => {
+    if (titleSearchField.value !== "") {
+        titleSearchButton.href += "?search_term=" + titleSearchField.value.trim().toLowerCase();
+    }
+}

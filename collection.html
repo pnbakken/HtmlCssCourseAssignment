@@ -45,8 +45,11 @@
            <h1>Movie Library</h1>
            <div class="search-box">
                <section class="search-panel">
-                <form-field id="search-options" action="#" method="GET">
-                    <input type="text" name="search" class="cta search input disabled" placeholder="Title…" disabled="true"/>
+                <form-field id="search-options">
+                    <div>
+                        <input type="text" name="search" class="cta search input" placeholder="Search title" id="title-search"/>
+                        <a href="collection.html" id="search-title-button">Search</a>
+                    </div>
                     <input type="text" name="search" class="cta search input disabled" placeholder="Director" disabled="true"/>
                     <select class="cta search-option disabled" name="genre" id="genre" disabled="true">
                         <option value="">Select Genre</option>
