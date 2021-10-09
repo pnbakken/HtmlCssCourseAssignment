@@ -31,7 +31,7 @@ a.active-collection-page {
     grid-gap: 30px;
     align-items: baseline;
     justify-self: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     max-width: 100%;
   }
 
@@ -53,7 +53,13 @@ a.active-collection-page {
 
 @media (min-width: 1440px) {
     .collection-item {
-        max-width: 20%;
+        max-width: 15%;
+    }
+}
+
+@media (min-width: 1920px) {
+    .collection-item {
+        max-width: 15%;
     }
 }
 
@@ -93,6 +99,12 @@ img.collection-poster {
         max-width: 30%;
     }
 }
+@media (min-width: 1440px) {
+    .index-list-item {
+        max-width: 25%;
+    }
+}
+
 
 .index-list-item img {
     max-width: 100%;
