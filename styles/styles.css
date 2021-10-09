@@ -187,8 +187,8 @@
   .featured-content-section {
     flex-direction: row;
     max-width: 100%;
-    justify-content: space-around;
-    align-items: space-around;
+    justify-content: space-evenly;
+    align-items: flex-start;
     grid-gap: 20px;
   }
 
@@ -221,11 +221,7 @@
 }
 
 @media (min-width: 1024px) {
-  .featured-content-section {
-    max-width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
+  
 
   .calls {
     grid-gap: 20px;
@@ -317,16 +313,21 @@
   margin-bottom: 10px;
 }
 
-.ticket-and-price {
+.call-and-price {
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: space-evenly;
+  grid-gap: 5px;
+  padding: 20px 0;
 }
 
 .film-presentation {
   background: var(--color-primary-background);
   padding: 20px 15px;
   max-width: 100%;
+  display:flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .film-presentation p {
@@ -358,7 +359,6 @@
 
 @media (min-width: 768px) {
   .film-presentation {
-    flex-flow: row;
     max-width: 60%;
   }
 
