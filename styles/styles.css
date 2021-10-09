@@ -316,8 +316,9 @@
 .call-and-price {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  grid-gap: 5px;
+  justify-content: center;
+  align-items: flex-end;
+  grid-gap: 15px;
   padding: 20px 0;
 }
 
