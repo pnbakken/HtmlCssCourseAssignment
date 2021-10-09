@@ -144,6 +144,8 @@ main {
     max-width: 45%;
   }
 
+}
+
 .checkmark {
   /* I can't figure this one out */
 
@@ -237,6 +239,7 @@ main {
   .nav-main li {
     margin-right: 30px;
   }
+}
 }
 
 /* -------  FOOTER  ------- */
