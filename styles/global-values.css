@@ -138,6 +138,12 @@ main {
   }
 }
 
+@media (min-width: 1024px) {
+
+  .poster-scroller {
+    max-width: 45%;
+  }
+
 .checkmark {
   /* I can't figure this one out */
 
