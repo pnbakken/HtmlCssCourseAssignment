@@ -25,6 +25,7 @@ a.active-collection-page {
     color: var(--color-links);
 }
 
+
 .result-table {
     display: flex;
     flex-flow: row wrap;

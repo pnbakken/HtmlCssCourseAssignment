@@ -5,6 +5,8 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 const QUERY_STRING = window.location.search;
 const URL_PARAMS = new URLSearchParams(QUERY_STRING);
 
+const BOX = document.querySelector("#poster-box");
+
 if (URL_PARAMS.has("movie_id")) {
     fetchMovie(URL_PARAMS.get("movie_id"));
 } else {

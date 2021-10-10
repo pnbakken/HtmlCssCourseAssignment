@@ -16,7 +16,7 @@ if (URL_PARAMS.has("title")) {
 PAYMENT_INFO.onsubmit = (event) => {
     event.preventDefault();
     if (validatePurchaseInfo(CARD_NUMBER.value, VALID_CODE.value)) {
-        completeSale(VALID_CODE.value);
+        completeSale();
     } 
 };
 
@@ -68,8 +68,7 @@ function validatePurchaseInfo(cardNumber, validCode) {
     return valid;
 }
 
-function completeSale(message) {
+function completeSale() {
     MESSAGE_BOX.innerHTML = `<div class="purchase-success"><p>Purchase completed!</p>
-                                                           <p>${message} too!</p>
                              </div>`;
 }
