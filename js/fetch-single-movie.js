@@ -5,7 +5,7 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 const QUERY_STRING = window.location.search;
 const URL_PARAMS = new URLSearchParams(QUERY_STRING);
 
-const BOX = document.querySelector("#poster-box");
+const messageBox = document.querySelector("#message-box");
 
 if (URL_PARAMS.has("movie_id")) {
     fetchMovie(URL_PARAMS.get("movie_id"));
@@ -22,6 +22,7 @@ async function fetchMovie(movieID) {
         setupMoviePage(result);
     } catch (err) {
         console.log(err);
+        messageBox.innerHTML = `<p class="error">Oh dear, something went wrong. Please reload the page, or return to the previous page and try again</p>`;
     }
 }
 

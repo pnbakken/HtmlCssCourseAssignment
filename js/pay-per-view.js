@@ -15,7 +15,7 @@ if (URL_PARAMS.has("title")) {
 
 PAYMENT_INFO.onsubmit = (event) => {
     event.preventDefault();
-    if (validatePurchaseInfo(CARD_NUMBER.value, VALID_CODE.value)) {
+    if (validatePurchaseInfo(CARD_NUMBER.value)) {
         completeSale();
     } 
 };
@@ -43,7 +43,7 @@ function setupPurchasePage(purchaseTitle, posterPath, purchasePrice = 99) {
 
 
 
-function validatePurchaseInfo(cardNumber, validCode) {
+function validatePurchaseInfo(cardNumber) {
 
 
     const cardRegex = /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/;
@@ -56,14 +56,14 @@ function validatePurchaseInfo(cardNumber, validCode) {
     } else {
         CARD_NUMBER.classList.remove("invalid");
     }
-
+    /*
     if (!validCode) {
         VALID_CODE.classList.add("invalid");
-        MESSAGE_BOX.innerHTML += `<p class="error">Please give me a nice compliment</p>`;
+        MESSAGE_BOX.innerHTML += `<p class="error">Please say the magic work</p>`;
         valid = false;
     } else {
         VALID_CODE.classList.remove("invalid");
-    }
+    } */
 
     return valid;
 }
