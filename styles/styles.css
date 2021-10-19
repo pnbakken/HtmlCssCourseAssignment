@@ -615,8 +615,18 @@
     justify-content: space-around;
   }
 
+  .product-info-text {
+    justify-content: center;
+  }
+
   #payment-info {
-    /* align-items: center; */
+    align-items: center;
     justify-content: center; 
   }
+}
+
+.right-aligner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
