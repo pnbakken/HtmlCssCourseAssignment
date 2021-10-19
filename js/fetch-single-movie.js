@@ -10,7 +10,7 @@ const messageBox = document.querySelector("#message-box");
 if (URL_PARAMS.has("movie_id")) {
     fetchMovie(URL_PARAMS.get("movie_id"));
 } else {
-    fetchMovie(69) // movie page is no longer accessible without query string, but setting a default movie just in case anyway. Don't know which movie 25 is, just a random number.
+    fetchMovie(179111) // movie page is no longer accessible without query string, but setting a default movie just in case anyway. Don't know which movie 25 is, just a random number.
 }
 
 async function fetchMovie(movieID) {

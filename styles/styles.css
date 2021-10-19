@@ -596,7 +596,8 @@
 .product-info-text {
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 #payment-info {
@@ -615,7 +616,7 @@
   }
 
   #payment-info {
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    justify-content: center; 
   }
 }
