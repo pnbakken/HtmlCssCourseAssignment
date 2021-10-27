@@ -31,7 +31,6 @@ a.active-collection-page {
     flex-flow: row wrap;
     grid-gap: 30px;
     align-items: baseline;
-    align-content: stretch;
     justify-content: flex-start;
     max-width: 100%;
   }

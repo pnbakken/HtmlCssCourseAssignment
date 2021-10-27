@@ -314,7 +314,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  max-width: 100%;
+}
+
+@media (min-width: 1200px) {
+  #poster-box {
+    max-width: 80%;
+  }
 }
 
 .fact-box ul {
