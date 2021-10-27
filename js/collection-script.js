@@ -2,7 +2,8 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
-const SE_API_URL = "http://square-eyes-api.local/wp-json/wc/store/products";
+const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
+const CORS_FIX = "https://noroffcors.herokuapp.com/";
 
 const RESULT_TABLE = document.querySelector(".result-table");
 
@@ -18,7 +19,7 @@ function setupCollectionPage() {
     } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
     } else {
-        getCollection(SE_API_URL);
+        getCollection(CORS_FIX+SE_API_URL);
     }
     console.log(queryString);
 
