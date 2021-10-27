@@ -27,7 +27,7 @@ function setupPurchasePage(purchaseTitle, posterPath, purchasePrice = 99) {
     setPurchasePrice(purchasePrice);
 
     function setPosterImage(url, title) {
-        const posterUrl = TMDB_IMG_URL + "p/w500" + url;
+        const posterUrl = url;
         const poster = document.querySelector(".purchase-poster");
         poster.innerHTML = `<img src="${posterUrl}" alt="${title} poster">`;
     }

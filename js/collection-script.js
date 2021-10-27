@@ -116,11 +116,11 @@ function generatePageLinks(size, currentPage, searchKeyword = "") {
 
 function buildCollectionItemHTML(item) {
 
-    let imagePath = getItemPosterImage(item.poster_path);
+    let imagePath = getItemPosterImage(item.images);
 
     return `<div class="collection-item"> 
                 <a href="./film-page.html?movie_id=${item.id}">
-                    <div><img src="${item.src}" alt="${item.name}" class="collection-poster"/></div>
+                    <div><img src="${imagePath}" alt="${item.name}" class="collection-poster"/></div>
                 </a>
                 <div class"collection-itemq-details">
                     <p class="item-title collection-title">${item.name}</p>
@@ -129,8 +129,13 @@ function buildCollectionItemHTML(item) {
             </div>`;
 }
 
-function getItemPosterImage(posterPath) {
-    return TMDB_IMG_URL + "p/w500/" + posterPath;
+function getItemPosterImage(images) {
+
+    if (images.length > 0) {
+        console.log(images[0].src);
+        return images[0].src;
+    } else return "";
+    
 
 }
 

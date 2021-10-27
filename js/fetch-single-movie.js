@@ -41,19 +41,19 @@ function setupMoviePage(movie) {
     console.log(movie);
 
     setTitle(movie.name);
-    setPoster(movie.poster_path, movie.name);
+    setPoster(movie.images);
     setBackdrop(movie.backdrop_path, movie.name);
     //setReleaseYear(movie.release_date);
     setOverview(movie.description);
     setRating(movie.average_rating, movie.vote_count);
     setTagline(movie.short_description);
-    setTicketLink(movie.poster_path, movie.name);
+    setTicketLink(movie.images[0].src, movie.name);
 
-    function setPoster(url, title) {
-        const posterUrl = TMDB_IMG_URL + "p/w500" + url;
+    function setPoster(images) {
         const poster = document.querySelector("#film-poster");
-        poster.src = posterUrl;
-        poster.alt = `Poster for ${title}`;
+        if (images.length > 0) {
+            poster.src = images[0].src;
+        }
 
     }
 
