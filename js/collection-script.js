@@ -2,6 +2,8 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
+const SE_API_URL = "http://square-eyes-api.local/wp-json/wc/store/products";
+
 const RESULT_TABLE = document.querySelector(".result-table");
 
 setupCollectionPage();
@@ -16,20 +18,26 @@ function setupCollectionPage() {
     } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
     } else {
-        getCollection();
+        getCollection(SE_API_URL);
     }
     console.log(queryString);
 
 }
 
-async function getCollection(pageNumber = 1) {
-    const URL = TMDB_URL + "discover/movie/?api_key=" + TMDB_API_KEY + `&page=${pageNumber}`;
+async function getSquareEyesCollection(url) {
+    const response = await fetch(url);
+    const result = await response.json();
+    displayResults(result, "Collection");
+}
+
+async function getCollection(url) {
+    
     try {
-        const response = await fetch(URL);
+        const response = await fetch(url);
         const result = await response.json();
         console.log(result);
         pageReady(RESULT_TABLE);
-        generatePageLinks(result.total_pages, result.page);
+        //generatePageLinks(result.total_pages, result.page);
         displayResults(result, "Collection");
     } catch (err) {
         console.error(err);
@@ -57,8 +65,8 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
 function displayResults(collection, heading) {
     
     setCollectionHeading(heading);
-    if (collection.results.length > 0) {
-        for (let movie of collection.results) {
+    if (collection.length > 0) {
+        for (let movie of collection) {
             RESULT_TABLE.innerHTML += buildCollectionItemHTML(movie);
         }
     } else {
@@ -111,11 +119,11 @@ function buildCollectionItemHTML(item) {
 
     return `<div class="collection-item"> 
                 <a href="./film-page.html?movie_id=${item.id}">
-                    <div><img src="${imagePath}" alt="${item.title} poster" class="collection-poster"/></div>
+                    <div><img src="${imagePath}" alt="${item.name} poster" class="collection-poster"/></div>
                 </a>
                 <div class"collection-itemq-details">
-                    <p class="item-title collection-title">${item.title}</p>
-                    <p>Rating: <span class="item-rating">${item.vote_average}</p>
+                    <p class="item-title collection-title">${item.name}</p>
+                    <p>Rating: <span class="item-rating">${item.average_rating}</p>
                 </div>
             </div>`;
 }
