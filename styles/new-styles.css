@@ -40,6 +40,7 @@ a.active-collection-page {
     display: flex;
     flex-direction: column;
     grid-gap: 10px;
+    align-content: stretch;
 }
 
 @media (min-width: 425px) {
@@ -56,7 +57,7 @@ a.active-collection-page {
 
 @media (min-width: 1440px) {
     .collection-item {
-        max-width: 15%;
+        max-width: 20%;
     }
 }
 
