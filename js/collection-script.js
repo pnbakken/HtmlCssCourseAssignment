@@ -120,7 +120,7 @@ function buildCollectionItemHTML(item) {
 
     return `<div class="collection-item"> 
                 <a href="./film-page.html?movie_id=${item.id}">
-                    <div><img src="${imagePath}" alt="${item.name}" class="collection-poster"/></div>
+                    <div><img src="${item.src}" alt="${item.name}" class="collection-poster"/></div>
                 </a>
                 <div class"collection-itemq-details">
                     <p class="item-title collection-title">${item.name}</p>
