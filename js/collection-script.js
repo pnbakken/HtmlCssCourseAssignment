@@ -19,7 +19,7 @@ function setupCollectionPage() {
     } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
     } else {
-        getCollection(CORS_FIX+SE_API_URL);
+        getCollection(SE_API_URL);
     }
     console.log(queryString);
 
@@ -47,15 +47,21 @@ async function getCollection(url) {
 }
 
 async function getSearchResults(searchTerm, pageNumber= 1) {
-    const URL = TMDB_URL + "search/movie?api_key=" + TMDB_API_KEY + `&query=${searchTerm}&page=${pageNumber}`;
+    const URL = SE_API_URL;
     
     try {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
         pageReady(RESULT_TABLE);
-        generatePageLinks(result.total_pages, result.page, searchTerm);
-        displayResults(result, `Results for "${searchTerm}"`);
+        let searchHits = [];
+        result.forEach((item) => {
+            if (item.name.toLowerCase().includes(searchTerm)) {
+                searchHits.push(item);
+            }
+        });
+        // generatePageLinks(result.total_pages, result.page, searchTerm);
+        displayResults(searchHits, `Results for "${searchTerm}"`);
     } catch (err) {
         console.error(err);
         return null;
