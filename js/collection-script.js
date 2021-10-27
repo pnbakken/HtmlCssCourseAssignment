@@ -54,14 +54,8 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
         const result = await response.json();
         console.log(result);
         pageReady(RESULT_TABLE);
-        let searchHits = [];
-        result.forEach((item) => {
-            if (item.name.toLowerCase().includes(searchTerm)) {
-                searchHits.push(item);
-            }
-        });
         // generatePageLinks(result.total_pages, result.page, searchTerm);
-        displayResults(searchHits, `Results for "${searchTerm}"`);
+        displayResults(result.filter(item => item.name.toLowerCase().contains(searchTerm.toLowerCase())), `Results for "${searchTerm}"`);
     } catch (err) {
         console.error(err);
         return null;

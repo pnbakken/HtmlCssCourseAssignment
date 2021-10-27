@@ -4,23 +4,28 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
 const QUERY_STRING = window.location.search;
 const URL_PARAMS = new URLSearchParams(QUERY_STRING);
-const SE_API_URL = "http://square-eyes-api.local/wp-json/wc/store/products";
+const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
 
 const messageBox = document.querySelector("#message-box");
 
 if (URL_PARAMS.has("movie_id")) {
-    fetchMovie(SE_API_URL + URL_PARAMS.get("movie_id"));
+    fetchMovie(SE_API_URL, URL_PARAMS.get("movie_id"));
 } else {
     fetchMovie(179111) // movie page is no longer accessible without query string, but setting a default movie just in case anyway. Don't know which movie 25 is, just a random number.
 }
 
-async function fetchMovie(url) {
+async function fetchMovie(url, movieID) {
     
     try {
         const response = await fetch(url);
         const result = await response.json();
         console.log(result);
-        setupMoviePage(result);
+        for (let item of result) {
+            console.log(item.id + " === " + movieID);
+            if (item.id == movieID) {
+                setupMoviePage(item);
+            }
+        }
     } catch (err) {
         console.log(err);
         messageBox.innerHTML = `<p class="error">Oh dear, something went wrong. Please reload the page, or return to the previous page and try again</p>`;
@@ -28,15 +33,16 @@ async function fetchMovie(url) {
 }
 
 function setupMoviePage(movie) {
+    console.log(movie);
 
-    setTitle(movie.title);
-    setPoster(movie.poster_path, movie.title);
-    setBackdrop(movie.backdrop_path, movie.title);
-    setReleaseYear(movie.release_date);
-    setOverview(movie.overview);
-    setRating(movie.vote_average, movie.vote_count);
-    setTagline(movie.tagline);
-    setTicketLink(movie.poster_path, movie.title);
+    setTitle(movie.name);
+    setPoster(movie.poster_path, movie.name);
+    setBackdrop(movie.backdrop_path, movie.name);
+    //setReleaseYear(movie.release_date);
+    setOverview(movie.description);
+    setRating(movie.average_rating, movie.vote_count);
+    setTagline(movie.short_description);
+    setTicketLink(movie.poster_path, movie.name);
 
     function setPoster(url, title) {
         const posterUrl = TMDB_IMG_URL + "p/w500" + url;
