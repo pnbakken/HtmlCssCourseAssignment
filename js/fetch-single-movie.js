@@ -20,12 +20,17 @@ async function fetchMovie(url, movieID) {
         const response = await fetch(url);
         const result = await response.json();
         console.log(result);
-        for (let item of result) {
-            console.log(item.id + " === " + movieID);
-            if (item.id == movieID) {
-                setupMoviePage(item);
-            }
-        }
+        // for (let item of result) {
+        //     console.log(item.id + " === " + movieID);
+        //     if (item.id == movieID) {
+        //         setupMoviePage(item);
+        //     }
+        // }
+
+        let movie = result.filter(item => item.id== movieID);
+        setupMoviePage(movie[0]);
+        console.log(movie);
+
     } catch (err) {
         console.log(err);
         messageBox.innerHTML = `<p class="error">Oh dear, something went wrong. Please reload the page, or return to the previous page and try again</p>`;
