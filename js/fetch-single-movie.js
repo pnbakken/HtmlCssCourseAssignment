@@ -17,7 +17,7 @@ if (URL_PARAMS.has("movie_id")) {
 async function fetchMovie(url, movieID) {
     
     try {
-        const response = await fetch(url);
+        const response = await fetch(url + `/${movieID}`);
         const result = await response.json();
         console.log(result);
         // for (let item of result) {
@@ -27,9 +27,8 @@ async function fetchMovie(url, movieID) {
         //     }
         // }
 
-        let movie = result.filter(item => item.id== movieID);
-        setupMoviePage(movie[0]);
-        console.log(movie);
+        //let movie = result.filter(item => item.id == movieID);
+        setupMoviePage(result);
 
     } catch (err) {
         console.log(err);

@@ -55,7 +55,7 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
         console.log(result);
         pageReady(RESULT_TABLE);
         // generatePageLinks(result.total_pages, result.page, searchTerm);
-        displayResults(result.filter(item => item.name.toLowerCase().contains(searchTerm.toLowerCase())), `Results for "${searchTerm}"`);
+        displayResults(result.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())), `Results for "${searchTerm}"`);
     } catch (err) {
         console.error(err);
         return null;
@@ -122,7 +122,7 @@ function buildCollectionItemHTML(item) {
                 <a href="./film-page.html?movie_id=${item.id}">
                     <div><img src="${imagePath}" alt="${item.name}" class="collection-poster"/></div>
                 </a>
-                <div class"collection-itemq-details">
+                <div class"collection-item-details">
                     <p class="item-title collection-title">${item.name}</p>
                     <p>Rating: <span class="item-rating">${item.average_rating}</p>
                 </div>
