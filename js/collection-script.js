@@ -120,11 +120,11 @@ function buildCollectionItemHTML(item) {
 
     return `<div class="collection-item"> 
                 <a href="./film-page.html?movie_id=${item.id}">
-                    <div><img src="${imagePath}" alt="${item.name}" class="collection-poster"/></div>
+                    <div><img src="${getItemPosterImage(item.images)}" alt="${item.name}" class="collection-poster"/></div>
                 </a>
                 <div class"collection-item-details">
                     <p class="item-title collection-title">${item.name}</p>
-                    <p>Rating: <span class="item-rating">${item.average_rating}</p>
+                    <p>Price: ${getItemPrice(item)} </p>
                 </div>
             </div>`;
 }
@@ -137,6 +137,12 @@ function getItemPosterImage(images) {
     } else return "";
     
 
+}
+
+function getItemPrice(item) {
+    if (item.on_sale) {
+        return `<span class="sale-price">${item.prices.price}</span> <span class="non-sale-price">${item.prices.regular_price}</span>`;
+    } else return `<span class="price">${item.prices.price}</span>`;
 }
 
 function pageLoading(container) {

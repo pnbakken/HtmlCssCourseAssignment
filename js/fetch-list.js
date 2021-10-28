@@ -14,21 +14,26 @@ const genres = {
 const scroller1 = document.querySelector("#scroller-items-1");
 const scroller2 = document.querySelector("#scroller-items-2");
 const scroller3 = document.querySelector("#scroller-items-3");
+const scroller4 = document.querySelector("#scroller-items-4");
 
-getList("categories", genres.drama, scroller1);
-getList("categories", genres.action, scroller2);
-getList("categories", genres.horror, scroller3)
+getLists();
 
-async function getList(criteria, sign, target) {
+async function getLists() {
     const url = SE_API_URL; 
     
     try {
         const response = await fetch(url);
         const result = await response.json();
         console.log(result);
-        const criteriaMatches = result.filter( (item) => matchAnyCriteria(item, criteria, sign));
-        console.log(criteriaMatches);
-        generateList(target, criteriaMatches);
+
+        const actionMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.action));
+        const dramaMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.drama));
+        const horrorMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.horror));
+        const comedyMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.comedy));
+        generateList(scroller1, dramaMatches);
+        generateList(scroller2, actionMatches);
+        generateList(scroller3, horrorMatches);
+        generateList(scroller4, comedyMatches);
     } catch (err) {
         console.error(err);
     }
@@ -37,15 +42,20 @@ async function getList(criteria, sign, target) {
 function matchAnyCriteria(item, criteria, sign) {
     switch (criteria) {
         case "categories" :
-            for (let crit of item.categories) {
-                console.log( crit + " === " + sign);
-                if (crit.id === sign) {
-                    return true;
-                }
-            }
-            break;
+            if (item.categories) {
+                return matchCategory(item, sign);
+            } else return false;  
     } 
     return false;
+}
+
+function matchCategory(item, sign) {
+    for (let crit of item.categories) {
+        console.log( crit + " === " + sign);
+        if (crit.id === sign) {
+            return true;
+        }
+    }
 }
 
 function generateList(target, list) {
@@ -59,6 +69,7 @@ function generateList(target, list) {
                                 <a href="./film-page.html?movie_id=${item.id}">    
                                     <img src="${item.images[0].src}" alt="${item.name} poster" />
                                 </a>
+                                <p class"list-item-title">${item.name}</p>
                             </div>`;
         count++;
     }

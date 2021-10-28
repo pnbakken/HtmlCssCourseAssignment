@@ -112,7 +112,7 @@ main {
   flex-flow: row wrap;
   grid-gap: 15px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .poster-scroller .scroller-title {
