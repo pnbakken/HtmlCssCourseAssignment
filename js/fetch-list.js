@@ -82,8 +82,15 @@ function generateList(target, list) {
                                     <img src="${item.images[0].src}" alt="${item.name} poster" />
                                 </a>
                                 <p class"list-item-title">${item.name}</p>
+                                <p class"movie-price">${priceIfOnSale(item)}
                             </div>`;
         count++;
+    }
+
+    function priceIfOnSale(movie) {
+        if (movie.on_sale) {
+            return `<span class="sale-price">${movie.prices.price},-</span> On Sale`;
+        } else return "";
     }
 }
 
