@@ -7,14 +7,20 @@ const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/pro
 const genres = {
     drama : 17,
     action : 19,
+    sciFi : 20,
     comedy : 21,
     horror : 22,
+    tragedy : 23,
+    war : 24,
+    thriller : 25,
+    romance : 26,    
 }
 
 const scroller1 = document.querySelector("#scroller-items-1");
 const scroller2 = document.querySelector("#scroller-items-2");
 const scroller3 = document.querySelector("#scroller-items-3");
 const scroller4 = document.querySelector("#scroller-items-4");
+const scroller5 = document.querySelector("#scroller-items-5");
 
 getLists();
 
@@ -30,10 +36,12 @@ async function getLists() {
         const dramaMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.drama));
         const horrorMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.horror));
         const comedyMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.comedy));
+        const saleMatches = result.filter( (item) => matchAnyCriteria(item, "on_sale", true));
         generateList(scroller1, dramaMatches);
         generateList(scroller2, actionMatches);
         generateList(scroller3, horrorMatches);
         generateList(scroller4, comedyMatches);
+        generateList(scroller5, saleMatches);
     } catch (err) {
         console.error(err);
     }
@@ -45,6 +53,10 @@ function matchAnyCriteria(item, criteria, sign) {
             if (item.categories) {
                 return matchCategory(item, sign);
             } else return false;
+
+        case "on_sale" :
+            return (item.on_sale === sign);
+        
     } 
     return false;
 }
