@@ -5,10 +5,10 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
 
 const genres = {
-    drama : "17",
-    action : "19",
-    comedy : "21",
-    horror : "22",
+    drama : 17,
+    action : 19,
+    comedy : 21,
+    horror : 22,
 }
 
 const scroller1 = document.querySelector("#scroller-items-1");
@@ -35,14 +35,17 @@ async function getList(criteria, sign, target) {
 }
 
 function matchAnyCriteria(item, criteria, sign) {
-    if (item[criteria]) {
-        for (let crit of item[criteria]) {
-            console.log( crit + " === " + sign);
-            if (crit.id == sign) {
-                return true;
+    switch (criteria) {
+        case "categories" :
+            for (let crit of item.categories) {
+                console.log( crit + " === " + sign);
+                if (crit.id === sign) {
+                    return true;
+                }
             }
-        }
-    } else return false;
+            break;
+    } 
+    return false;
 }
 
 function generateList(target, list) {
