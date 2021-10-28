@@ -90,7 +90,7 @@ function generateList(target, list) {
     function priceIfOnSale(movie) {
         if (movie.on_sale) {
             return `<span class="sale-price">${movie.prices.price},-</span> On Sale`;
-        } else return "";
+        } else return movie.prices.price + ",-";
     }
 }
 
