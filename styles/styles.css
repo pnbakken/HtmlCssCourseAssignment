@@ -635,7 +635,7 @@
 @media (min-width: 768px) {
   .purchase-display {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr;
     justify-content: center;
     padding: 0px 50px;
   }
@@ -647,6 +647,7 @@
   #payment-info {
     align-items: center;
     justify-content: center; 
+    padding: 0px 60px;
   }
 }
 
