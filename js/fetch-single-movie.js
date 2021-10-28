@@ -46,7 +46,8 @@ function setupMoviePage(movie) {
     setOverview(movie.description);
     setRating(movie.average_rating, movie.vote_count);
     setTagline(movie.short_description);
-    setTicketLink(movie.images[0].src, movie.name);
+    setTicketLink(movie.id);
+    setPrice(movie);
 
     function setPoster(images) {
         const poster = document.querySelector("#film-poster");
@@ -92,8 +93,16 @@ function setupMoviePage(movie) {
         document.querySelector("#movie-tagline").innerHTML = `<span id="tagline">${tagline}</span>`;
     }
 
-    function setTicketLink(posterPath, title) {
-        document.querySelector("#film-ticket").href += `?poster_path=${posterPath}&title=${title}`;
+    function setTicketLink(id) {
+        document.querySelector("#film-ticket").href += `?movie_id=${id}`;
+    }
+
+    function setPrice(movie) {
+        if (movie.on_sale) {
+            document.querySelector(".movie-price").innerHTML = `<span class="sale-price">${movie.prices.price},-</span> On Sale!`;
+        } else {
+            document.querySelector(".movie-price").innerText = `${movie.prices.price},-`;
+        }
     }
 }
 

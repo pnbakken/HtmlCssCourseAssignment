@@ -44,7 +44,7 @@ function matchAnyCriteria(item, criteria, sign) {
         case "categories" :
             if (item.categories) {
                 return matchCategory(item, sign);
-            } else return false;  
+            } else return false;
     } 
     return false;
 }

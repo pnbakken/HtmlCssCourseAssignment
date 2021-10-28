@@ -1,4 +1,4 @@
-/* To save on api-calls I only need the poster path and movie title as url parameters. */
+
 
 const QUERY_STRING = window.location.search;
 const URL_PARAMS = new URLSearchParams(QUERY_STRING);
@@ -7,10 +7,11 @@ const PAYMENT_INFO = document.querySelector("#payment-info");
 const CARD_NUMBER = document.querySelector("#card-number");
 const VALID_CODE = document.querySelector("#valid-code");
 const MESSAGE_BOX = document.querySelector("#purchase-message");
+const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products/";
 
-if (URL_PARAMS.has("title")) {
+if (URL_PARAMS.has("movie_id")) {
     
-    setupPurchasePage(URL_PARAMS.get("title"), URL_PARAMS.get("poster_path"));
+    setupPurchasePage(URL_PARAMS.get("movie_id"));
 }
 
 PAYMENT_INFO.onsubmit = (event) => {
@@ -20,25 +21,55 @@ PAYMENT_INFO.onsubmit = (event) => {
     } 
 };
 
-function setupPurchasePage(purchaseTitle, posterPath, purchasePrice = 99) {
+async function setupPurchasePage(id) {
 
-    setPosterImage(posterPath, purchaseTitle);
-    setPurchaseTitle(purchaseTitle);
-    setPurchasePrice(purchasePrice);
+    const url = SE_API_URL + id;
 
-    function setPosterImage(url, title) {
-        const posterUrl = url;
-        const poster = document.querySelector(".purchase-poster");
-        poster.innerHTML = `<img src="${posterUrl}" alt="${title} poster">`;
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+        buildPage(result);
+        
+    } catch (err) {
+        console.error(err);
     }
 
-    function setPurchaseTitle(title) {
-        document.querySelector(".movie-title").innerText = title;
+    function buildPage(movie) {
+        function setPosterImage(url, title) {
+            const posterUrl = url;
+            const poster = document.querySelector(".purchase-poster");
+            poster.innerHTML = `<img src="${posterUrl}" alt="${title}">`;
+        }
+
+        function setPurchaseTitle(title) {
+            document.querySelector(".movie-title").innerText = title;
+        }
+
+        function setPurchasePrice(movie) {
+            const target = document.querySelector(".movie-price");
+
+            if (movie.on_sale) {
+                target.innerHTML = `<span class="sale-price">${movie.prices.price},-</span>`;
+            } else {
+                target.innerHTML = `${movie.prices.price},-`;
+            }
+        }
+
+        setPosterImage(movie.images[0].src, movie.name);
+        setPurchaseTitle(movie.name);
+        setPurchasePrice(movie);
     }
 
-    function setPurchasePrice(price) {
-        document.querySelector(".movie-price").innerText = price + ",-";
-    }
+    /*
+    
+
+    
+
+    
+
+    
+    */
 }
 
 

@@ -141,8 +141,8 @@ function getItemPosterImage(images) {
 
 function getItemPrice(item) {
     if (item.on_sale) {
-        return `<span class="sale-price">${item.prices.price}</span> <span class="non-sale-price">${item.prices.regular_price}</span>`;
-    } else return `<span class="price">${item.prices.price}</span>`;
+        return `<span class="movie-price"><span class="sale-price">${item.prices.price},-</span> On Sale!</span>`;
+    } else return `<span class="movie-price">${item.prices.price},-</span>`;
 }
 
 function pageLoading(container) {

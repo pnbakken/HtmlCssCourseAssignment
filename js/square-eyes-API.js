@@ -1,4 +1,4 @@
-const url = "http://square-eyes-api.local/wp-json/wc/store/products";
+const url = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
 
 const RESULT_TABLE = document.querySelector(".result-table");
 

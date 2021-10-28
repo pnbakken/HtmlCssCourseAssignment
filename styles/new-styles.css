@@ -92,8 +92,10 @@ img.collection-poster {
 }
 
 .purchase-poster>img {
-    max-width: 80%;
+    max-width: 100%;
 }
+
+
 
 .index-list-item {
     max-width: 28%;
@@ -120,5 +122,6 @@ img.collection-poster {
   }
 
 .index-list-item>p {
-    max-width: 80%;
+    max-width: 90%;
 }
+
