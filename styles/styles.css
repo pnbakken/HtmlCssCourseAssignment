@@ -420,7 +420,7 @@
 @media (min-width: 768px) {
   .account-box {
     flex-flow: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: flex-start;
     max-width: 80%;
   }
@@ -439,10 +439,6 @@
 
 .account-menu li {
   margin-bottom: 10px;
-}
-
-.account-menu-link {
-  color: var(--font-body);
 }
 
 .account-picture {

@@ -5,7 +5,7 @@ const URL_PARAMS = new URLSearchParams(QUERY_STRING);
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 const PAYMENT_INFO = document.querySelector("#payment-info");
 const CARD_NUMBER = document.querySelector("#card-number");
-const VALID_CODE = document.querySelector("#valid-code");
+const CVC_CODE = document.querySelector("#cvcode");
 const MESSAGE_BOX = document.querySelector("#purchase-message");
 const AUTH_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products/";
 
@@ -16,8 +16,8 @@ if (URL_PARAMS.has("movie_id")) {
 
 PAYMENT_INFO.onsubmit = (event) => {
     event.preventDefault();
-    if (validatePurchaseInfo(CARD_NUMBER.value)) {
-        completeSale();
+    if (validatePurchaseInfo(CARD_NUMBER.value, CVC_CODE.value)) {
+        completeSale(URL_PARAMS.get("movie_id"));
     } 
 };
 
@@ -74,10 +74,11 @@ async function setupPurchasePage(id) {
 
 
 
-function validatePurchaseInfo(cardNumber) {
+function validatePurchaseInfo(cardNumber, cvc) {
 
 
     const cardRegex = /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/;
+    const cvcRegex = /^[0-9]{3,4}$/;
     let valid = true;
     MESSAGE_BOX.innerHTML = "";
     if (!cardRegex.test(cardNumber)) {
@@ -87,19 +88,19 @@ function validatePurchaseInfo(cardNumber) {
     } else {
         CARD_NUMBER.classList.remove("invalid");
     }
-    /*
-    if (!validCode) {
-        VALID_CODE.classList.add("invalid");
-        MESSAGE_BOX.innerHTML += `<p class="error">Please say the magic work</p>`;
+    if (!cvcRegex.test(cvc)) {
+        CVC_CODE.classList.add("invalid");
+        MESSAGE_BOX.innerHTML += `<p class="error">Please enter a valid CVC</p>`;
         valid = false;
     } else {
-        VALID_CODE.classList.remove("invalid");
-    } */
+        CVC_CODE.classList.remove("invalid");
+    } 
 
     return valid;
 }
 
-function completeSale() {
+function completeSale(id) {
     MESSAGE_BOX.innerHTML = `<div class="purchase-success"><p>Purchase completed!</p>
                              </div>`;
+    window.location = `../my-purchases.html?new_purchase=${id}`;
 }

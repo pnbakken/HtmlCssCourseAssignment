@@ -1,5 +1,17 @@
 @import url("./styles.css");
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .search-div {
     display:flex;
     flex-flow: column;
@@ -122,5 +134,9 @@ img.collection-poster {
 
 .index-list-item>p {
     max-width: 90%;
+}
+
+#purchased-movies-container {
+    background: var(--color-secondary-background);
 }
 
