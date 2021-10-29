@@ -41,7 +41,9 @@ async function getCollectionFromAPI(movies) {
 function buildCollectionDisplay(movies) {
     movies.forEach((movie) => {
         document.querySelector(".result-table").innerHTML += `<div class="collection-item">
-                                                                <img src="${movie.images[0].src}" class="collection-poster"/>
+                                                                <a href="./film-page.html?movie_id=${movie.id}">
+                                                                    <img src="${movie.images[0].src}" class="collection-poster"/>
+                                                                </a>
                                                                 <p>${movie.name}</p>
                                                               </div>`;
     });
