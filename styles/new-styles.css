@@ -37,7 +37,6 @@ a.active-collection-page {
 
 .collection-item {
     max-width: 80%;
-    height: 505px;
     display: flex;
     flex-direction: column;
     grid-gap: 10px;

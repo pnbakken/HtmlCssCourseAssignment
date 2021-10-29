@@ -4,12 +4,12 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
 const QUERY_STRING = window.location.search;
 const URL_PARAMS = new URLSearchParams(QUERY_STRING);
-const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
+const AUTH_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
 
 const messageBox = document.querySelector("#message-box");
 
 if (URL_PARAMS.has("movie_id")) {
-    fetchMovie(SE_API_URL, URL_PARAMS.get("movie_id"));
+    fetchMovie(AUTH_URL, URL_PARAMS.get("movie_id"));
 } else {
     fetchMovie(179111) // movie page is no longer accessible without query string, but setting a default movie just in case anyway. Don't know which movie 25 is, just a random number.
 }

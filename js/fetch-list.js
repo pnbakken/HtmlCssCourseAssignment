@@ -2,8 +2,10 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
-const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
-
+const CONSUMER_KEY = "ck_49557c160b917df745facc3de8a4a411a5a5e9d8";
+const CONSUMER_SECRET = "cs_a43e0349bb857aafd68cb9ad721755e647ca7430";
+const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/v3/products";
+const AUTH_URL = `${SE_API_URL}/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
 const genres = {
     drama : 17,
     action : 19,
@@ -25,7 +27,7 @@ const scroller5 = document.querySelector("#scroller-items-5");
 getLists();
 
 async function getLists() {
-    const url = SE_API_URL; 
+    const url = AUTH_URL; 
     
     try {
         const response = await fetch(url);
@@ -89,8 +91,8 @@ function generateList(target, list) {
 
     function priceIfOnSale(movie) {
         if (movie.on_sale) {
-            return `<span class="sale-price">${movie.prices.price},-</span> On Sale`;
-        } else return movie.prices.price + ",-";
+            return `<span class="sale-price">${movie.price},-</span> On Sale`;
+        } else return movie.price + ",-";
     }
 }
 

@@ -2,10 +2,15 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
-const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
+const CONSUMER_KEY = "ck_49557c160b917df745facc3de8a4a411a5a5e9d8";
+const CONSUMER_SECRET = "cs_a43e0349bb857aafd68cb9ad721755e647ca7430";
+const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/v2/products/";
+const AUTH_URL = `${SE_API_URL}/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
 const CORS_FIX = "https://noroffcors.herokuapp.com/";
 
 const RESULT_TABLE = document.querySelector(".result-table");
+
+
 
 setupCollectionPage();
 
@@ -19,7 +24,7 @@ function setupCollectionPage() {
     } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
     } else {
-        getCollection(SE_API_URL);
+        getCollection(AUTH_URL);
     }
     console.log(queryString);
 
@@ -47,7 +52,7 @@ async function getCollection(url) {
 }
 
 async function getSearchResults(searchTerm, pageNumber= 1) {
-    const URL = SE_API_URL;
+    const URL = AUTH_URL;
     
     try {
         const response = await fetch(URL);
@@ -141,8 +146,8 @@ function getItemPosterImage(images) {
 
 function getItemPrice(item) {
     if (item.on_sale) {
-        return `<span class="movie-price"><span class="sale-price">${item.prices.price},-</span> On Sale!</span>`;
-    } else return `<span class="movie-price">${item.prices.price},-</span>`;
+        return `<span class="movie-price"><span class="sale-price">${item.price},-</span> On Sale!</span>`;
+    } else return `<span class="movie-price">${item.price},-</span>`;
 }
 
 function pageLoading(container) {

@@ -7,7 +7,7 @@ const PAYMENT_INFO = document.querySelector("#payment-info");
 const CARD_NUMBER = document.querySelector("#card-number");
 const VALID_CODE = document.querySelector("#valid-code");
 const MESSAGE_BOX = document.querySelector("#purchase-message");
-const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products/";
+const AUTH_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products/";
 
 if (URL_PARAMS.has("movie_id")) {
     
@@ -23,7 +23,7 @@ PAYMENT_INFO.onsubmit = (event) => {
 
 async function setupPurchasePage(id) {
 
-    const url = SE_API_URL + id;
+    const url = AUTH_URL + id;
 
     try {
         const response = await fetch(url);
