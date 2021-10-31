@@ -11,6 +11,7 @@ const CORS_FIX = "https://noroffcors.herokuapp.com/";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
+/* NOT CURRENTLY WORKING
 const filterSelect = document.querySelector("#filter-free-films");
 console.log(filterSelect);
 filterSelect.onchange = (() => {
@@ -20,8 +21,10 @@ filterSelect.onchange = (() => {
         window.location = `./collection.html?${queryString}&on_sale=true`;
     } else {
         console.log("not checked");
+        
     }
-});
+});  */
+
 
 const RESULT_TABLE = document.querySelector(".result-table");
 
@@ -32,28 +35,14 @@ setupCollectionPage();
 function setupCollectionPage() {
     
     pageLoading(RESULT_TABLE);
-    if (urlParams.has("on_sale") && urlParams.get("on_sale" === true)) {
-
-        filterSelect.checked = true;
-        
-        if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
-            getSearchResults(urlParams.get("search_term"), urlParams.get("page"), true);
-            console.log("Setting up search page");
-        } else if (urlParams.has("page")) {
-            getCollection(urlParams.get("page"), true);
-        } else {
-            getCollection(AUTH_URL);
-        }
-        
+    
+    if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
+        getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
+        console.log("Setting up search page");
+    } else if (urlParams.has("page")) {
+        getCollection(urlParams.get("page"));
     } else {
-        if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
-            getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
-            console.log("Setting up search page");
-        } else if (urlParams.has("page")) {
-            getCollection(urlParams.get("page"));
-        } else {
-            getCollection(AUTH_URL);
-        }
+        getCollection(AUTH_URL);
     }
     
     console.log(queryString);
@@ -81,20 +70,7 @@ async function getCollection(url) {
     }   
 }
 
-async function getCollection(url, onSale) {
-    
-    try {
-        const response = await fetch(url);
-        const result = await response.json();
-        console.log(result);
-        pageReady(RESULT_TABLE);
-        //generatePageLinks(result.total_pages, result.page);
-        displayResults(result.filter((movie) => movie.on_sale === true), "Collection");
-    } catch (err) {
-        console.error(err);
-        return null;
-    }   
-}
+
 
 async function getSearchResults(searchTerm, pageNumber= 1) {
     const URL = AUTH_URL;
@@ -112,6 +88,7 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
     }
     
 }
+
 
 function displayResults(collection, heading) {
     
