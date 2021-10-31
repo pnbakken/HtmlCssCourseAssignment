@@ -8,9 +8,19 @@ const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/v2/produc
 const AUTH_URL = `${SE_API_URL}/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
 const CORS_FIX = "https://noroffcors.herokuapp.com/";
 
-const filterSelect = document.querySelector("#filter-offer");
-filterSelect.onselect = ((event) => {
-    console.log(event);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+const filterSelect = document.querySelector("#filter-free-films");
+console.log(filterSelect);
+filterSelect.onchange = (() => {
+    console.log("Filter changed");
+    if (filterSelect.checked) {
+        console.log("checked");
+        window.location = `./collection.html?${queryString}&on_sale=true`;
+    } else {
+        console.log("not checked");
+    }
 });
 
 const RESULT_TABLE = document.querySelector(".result-table");
@@ -20,17 +30,32 @@ const RESULT_TABLE = document.querySelector(".result-table");
 setupCollectionPage();
 
 function setupCollectionPage() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
+    
     pageLoading(RESULT_TABLE);
-    if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
-        getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
-        console.log("Setting up search page");
-    } else if (urlParams.has("page")) {
-        getCollection(urlParams.get("page"));
+    if (urlParams.has("on_sale") && urlParams.get("on_sale" === true)) {
+
+        filterSelect.checked = true;
+        
+        if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
+            getSearchResults(urlParams.get("search_term"), urlParams.get("page"), true);
+            console.log("Setting up search page");
+        } else if (urlParams.has("page")) {
+            getCollection(urlParams.get("page"), true);
+        } else {
+            getCollection(AUTH_URL);
+        }
+        
     } else {
-        getCollection(AUTH_URL);
+        if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
+            getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
+            console.log("Setting up search page");
+        } else if (urlParams.has("page")) {
+            getCollection(urlParams.get("page"));
+        } else {
+            getCollection(AUTH_URL);
+        }
     }
+    
     console.log(queryString);
 
 }
@@ -50,6 +75,21 @@ async function getCollection(url) {
         pageReady(RESULT_TABLE);
         //generatePageLinks(result.total_pages, result.page);
         displayResults(result, "Collection");
+    } catch (err) {
+        console.error(err);
+        return null;
+    }   
+}
+
+async function getCollection(url, onSale) {
+    
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+        pageReady(RESULT_TABLE);
+        //generatePageLinks(result.total_pages, result.page);
+        displayResults(result.filter((movie) => movie.on_sale === true), "Collection");
     } catch (err) {
         console.error(err);
         return null;

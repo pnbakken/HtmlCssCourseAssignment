@@ -1,25 +1,40 @@
 const CONTACT_FORM = document.querySelector("#contact-form");
-console.log(CONTACT_FORM);
+const submitInfo = document.querySelector(".submit-info-display");
 
 CONTACT_FORM.addEventListener(`submit`, (event) => {
     console.log("submitted");
     event.preventDefault();
 
     if (validateFormInputs()) {
-
-    } else {
-
+        submitInfo.innerHTML = `<span class="success">Message successfully sent!</span>`;
     }
 });
 
 function validateFormInputs() {
     let check = true;
-    const submitInfo = document.querySelector(".submit-info-display");
+    
 
     const nameInput = document.querySelector("#name");
     const emailInput = document.querySelector("#email");
     const subjectInput = document.querySelector("#subject");
     const messageText = document.querySelector("#message-text");
+
+    function validateName(name) {
+        return (name.trim());
+    }
+
+    function validateEmail(email) {
+        const emailRegex = /\S+@\S+\.\S+/;
+        return emailRegex.test(email);
+    }
+
+    function validateSubject(subject) {
+        return (subject.trim());
+    }
+
+    function validateMessage(message) {
+        return (message.trim());
+    }
 
     submitInfo.innerHTML = "";
 
@@ -42,7 +57,7 @@ function validateFormInputs() {
         submitInfo.innerHTML += `<p class="error-message">Invalid subject</p>`;
         check = false;
     } else {
-        subjectInput.classList.add("invalid");
+        subjectInput.classList.remove("invalid");
     }
     if (!validateMessage(messageText.value)) {
         messageText.classList.add("invalid");
@@ -52,21 +67,6 @@ function validateFormInputs() {
         subjectInput.classList.remove("invalid");
     }
 
-    function validateName(name) {
-        return (name.trim());
-    }
+    return check;
 
-    function validateEmail(email) {
-        const emailRegex = /\S+@\S+\.\S+/;
-        return emailRegex.test(email);
-    }
-
-    function validateSubject(subject) {
-        return (subject.trim());
-    }
-
-    function validateMessage(message) {
-        return (message.trim());
-    }
-    
 }
