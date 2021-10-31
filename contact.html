@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Some different text than the front page description" />
+        <meta name="keywords" content="Independent film, Streaming, Pay-Per-View, DIY, cinephiles, film enthusiast, " />
+        <meta name="author" content="Pål N. Bakken" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/new-styles.css" type="text/css" />
+        <link rel="stylesheet" href="./styles/contact-styles.css" type="text/css" />
+        <title>Square Eyes | Contact Us</title>
+
+        <script src="./js/script.js" defer></script>
+        <script src="./js/contact.js" defer></script>
+
+        <!-- Hotjar Tracking Code for https://brave-einstein-119948.netlify.app/index.html -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:2608857,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> I need this to work around https problems on the live site -->
+    </head>
+<body>
+   <header>
+        <nav class="nav-main">
+            <span id="logo-nav"><a href="./index.html"><img src="./images/logo-nav.png" alt="Square Eyes smaller logo" /></a></span>
+            <ul>
+                <li><a href="./index.html" class="active">Home</a></li>
+                <li><a href="./collection.html">Movies</a></li>
+                <!--<li><a href="./purchase.html">Tickets</a></li>-->
+                <li><a href="./account.html">Account</a></li>
+            </ul>
+            <div class="search-div">
+                <input type="text" name="search" class="cta search input" id="search-field" placeholder="Search…" />
+                <a href="./collection.html" id="search-button">Search</a>
+            </div>
+        </nav>
+   </header>
+   
+    <main id="mainpage-main">
+        <h1>Contact Us</h1>
+        <section class="contact-box">
+            <div class="form-container">
+                <form id="contact-form">
+                    <div class="user-information">
+                        <div><input type="text" id="name" name="name"  class="input cta"/> <label for="name">Your name (required)</label></div>
+                        <div><input type="email" id="email" name="email" class="input cta"/> <label for="email">Your email (required)</label></div>
+                    </div>
+                    <div class="message-information">
+                        <div><input type="text" id="subject" name="subject" class="input cta"/> <label for="subject">Message Subject (required)</label></div>
+                        <div><textarea id="message-text" name="message-text" class="input cta message-box"> </textarea><label for="message-text">Message text (required)</label></div>
+                    </div>
+                    
+                </form>
+                <submit id="submit" class="cta purchase">Send Message</submit>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+       <span>&copy2021</span>
+    </footer>
+</body>
+</html>

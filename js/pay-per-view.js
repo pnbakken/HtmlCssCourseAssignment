@@ -43,7 +43,7 @@ async function setupPurchasePage(id) {
         }
 
         function setPurchaseTitle(title) {
-            document.querySelector(".movie-title").innerText = title;
+            document.querySelector(".movie-title").innerHTML = `<p>${title}</p>`;
         }
 
         function setPurchasePrice(movie) {

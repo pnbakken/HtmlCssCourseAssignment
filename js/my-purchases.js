@@ -9,6 +9,9 @@ const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/v2/produc
 const AUTH_URL = `${SE_API_URL}/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
 
 
+/* I understand that adding movie purchases via a url query like this 
+   isn't a good idea, but it's handy for testing */
+
 if (urlParams.has("new_purchase")) {
     
     addToCollection(urlParams.get("new_purchase"));

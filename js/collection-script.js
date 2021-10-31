@@ -8,6 +8,11 @@ const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/v2/produc
 const AUTH_URL = `${SE_API_URL}/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
 const CORS_FIX = "https://noroffcors.herokuapp.com/";
 
+const filterSelect = document.querySelector("#filter-offer");
+filterSelect.onselect = ((event) => {
+    console.log(event);
+});
+
 const RESULT_TABLE = document.querySelector(".result-table");
 
 
@@ -88,7 +93,7 @@ function setCollectionHeading(heading) {
 function generatePageLinks(size, currentPage, searchKeyword = "") {
 
     // This function has maybe been the most complicated and stupid solution of the whole project so far
-
+    // And I'm not even currently using it
     let pageLinkHTML = "Page: ";
 
     for (let i = 1; i <= size; i++) {

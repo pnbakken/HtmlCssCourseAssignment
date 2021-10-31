@@ -41,7 +41,7 @@ function setupMoviePage(movie) {
 
     setTitle(movie.name);
     setPoster(movie.images);
-    setBackdrop(movie.backdrop_path, movie.name);
+    //setBackdrop(movie.backdrop_path, movie.name);
     //setReleaseYear(movie.release_date);
     setOverview(movie.description);
     setRating(movie.average_rating, movie.vote_count);
@@ -65,8 +65,8 @@ function setupMoviePage(movie) {
     }
 
     function setTitle(title) {
-        document.querySelector("title").innerText += title;
-        document.querySelector(".item-title").innerText = title;
+        document.querySelector("title").innerHTML += title;
+        document.querySelector(".item-title").innerHTML = title;
     }
 
     function setReleaseYear(releaseDate) {
@@ -101,7 +101,7 @@ function setupMoviePage(movie) {
         if (movie.on_sale) {
             document.querySelector(".movie-price").innerHTML = `<span class="sale-price">${movie.prices.price},-</span> On Sale!`;
         } else {
-            document.querySelector(".movie-price").innerText = `${movie.prices.price},-`;
+            document.querySelector(".movie-price").innerHTML = `${movie.prices.price},-`;
         }
     }
 }
