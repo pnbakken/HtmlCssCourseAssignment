@@ -2,7 +2,7 @@ const CONTACT_FORM = document.querySelector("#contact-form");
 const submitInfo = document.querySelector(".submit-info-display");
 
 CONTACT_FORM.addEventListener(`submit`, (event) => {
-    console.log("submitted");
+    
     event.preventDefault();
 
     if (validateFormInputs()) {

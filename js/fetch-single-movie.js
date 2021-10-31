@@ -19,7 +19,6 @@ async function fetchMovie(url, movieID) {
     try {
         const response = await fetch(url + `/${movieID}`);
         const result = await response.json();
-        console.log(result);
         // for (let item of result) {
         //     console.log(item.id + " === " + movieID);
         //     if (item.id == movieID) {
@@ -31,14 +30,13 @@ async function fetchMovie(url, movieID) {
         setupMoviePage(result);
 
     } catch (err) {
-        console.log(err);
+        console.error(err);
         messageBox.innerHTML = `<p class="error">Oh dear, something went wrong. Please reload the page, or return to the previous page and try again</p>`;
     }
 }
 
 function setupMoviePage(movie) {
-    console.log(movie);
-
+   
     setTitle(movie.name);
     setPoster(movie.images);
     //setBackdrop(movie.backdrop_path, movie.name);

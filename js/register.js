@@ -1,6 +1,6 @@
 const registerForm = document.querySelector(".signup");
 const registerMessage = document.querySelector("#register-message");
-console.log(registerForm.children);
+
 
 registerForm.onsubmit = (event) => {
     event.preventDefault();

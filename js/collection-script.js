@@ -20,7 +20,7 @@ filterSelect.onchange = (() => {
         console.log("checked");
         window.location = `./collection.html?${queryString}&on_sale=true`;
     } else {
-        console.log("not checked");
+        ("not checked");
         
     }
 });  */
@@ -38,14 +38,11 @@ function setupCollectionPage() {
     
     if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
         getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
-        console.log("Setting up search page");
     } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
     } else {
         getCollection(AUTH_URL);
     }
-    
-    console.log(queryString);
 
 }
 
@@ -60,7 +57,6 @@ async function getCollection(url) {
     try {
         const response = await fetch(url);
         const result = await response.json();
-        console.log(result);
         pageReady(RESULT_TABLE);
         //generatePageLinks(result.total_pages, result.page);
         displayResults(result, "Collection");
@@ -78,7 +74,6 @@ async function getSearchResults(searchTerm, pageNumber= 1) {
     try {
         const response = await fetch(URL);
         const result = await response.json();
-        console.log(result);
         pageReady(RESULT_TABLE);
         // generatePageLinks(result.total_pages, result.page, searchTerm);
         displayResults(result.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())), `Results for "${searchTerm}"`);
@@ -159,7 +154,6 @@ function buildCollectionItemHTML(item) {
 function getItemPosterImage(images) {
 
     if (images.length > 0) {
-        console.log(images[0].src);
         return images[0].src;
     } else return "";
     
@@ -183,9 +177,9 @@ function pageReady(container) {
 const titleSearchButton = document.querySelector("#title-search-button");
 const titleSearchField = document.querySelector("#title-search");
 titleSearchField.addEventListener("keyup", (event) => {
-    console.log("keyup");
+    
  if (event.keyCode === 13 && titleSearchField.value.trim()) {
-     console.log("Enter entered");
+     
      event.preventDefault();
      location.href = `./collection.html?search_term=${titleSearchField.value.trim().toLowerCase()}`;
  }

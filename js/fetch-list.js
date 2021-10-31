@@ -32,7 +32,6 @@ async function getLists() {
     try {
         const response = await fetch(url);
         const result = await response.json();
-        console.log(result);
 
         const actionMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.action));
         const dramaMatches = result.filter( (item) => matchAnyCriteria(item, "categories", genres.drama));
@@ -65,7 +64,6 @@ function matchAnyCriteria(item, criteria, sign) {
 
 function matchCategory(item, sign) {
     for (let crit of item.categories) {
-        console.log( crit + " === " + sign);
         if (crit.id === sign) {
             return true;
         }

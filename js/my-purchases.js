@@ -37,7 +37,7 @@ async function getCollectionFromAPI(movies) {
             }
         }
     });
-    console.log(returnedCollection);
+    
     buildCollectionDisplay(returnedCollection);
 }
 
@@ -66,11 +66,10 @@ function addToCollection(id) {
         ownedMovies.unshift(parseInt(id));
     }
     STORAGE.setItem("owned_movies", ownedMovies);
-    console.log(ownedMovies);
 
     function isNewMovie(movieArray, sign) {
         let isNew = true;
-        console.log(typeof movieArray);
+        
         movieArray.forEach( (movie) => {
             if (parseInt(movie) === parseInt(sign)) {
                 isNew = false;
