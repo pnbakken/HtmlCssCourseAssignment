@@ -2,10 +2,10 @@ const TMDB_API_KEY = "d5b5096de95f26903a3b6601c9a24d4f";
 const TMDB_URL = "https://api.themoviedb.org/3/";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
-const CONSUMER_KEY = "ck_49557c160b917df745facc3de8a4a411a5a5e9d8";
-const CONSUMER_SECRET = "cs_a43e0349bb857aafd68cb9ad721755e647ca7430";
+const CONSUMER_KEY = "ck_39f7bcc9a98df0e2297823df0abb2093163baf20";
+const CONSUMER_SECRET = "cs_e4cf7ff22535328d4a83476ac03a7de639a100b3";
 const SE_API_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/v2/products/";
-const AUTH_URL = `${SE_API_URL}/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
+const AUTH_URL = `${SE_API_URL}?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=50`;
 const CORS_FIX = "https://noroffcors.herokuapp.com/";
 
 const queryString = window.location.search;

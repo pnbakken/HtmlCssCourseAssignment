@@ -140,3 +140,18 @@ img.collection-poster {
     background: var(--color-secondary-background);
 }
 
+.comments-box {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+@media(min-width: 768px) {
+    .comments-box {
+        width: 50%;
+    }
+}
+
+.comment {
+    border-bottom: 1px solid var(--color-primary);
+}

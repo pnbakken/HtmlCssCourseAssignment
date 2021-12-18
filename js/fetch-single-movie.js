@@ -4,6 +4,9 @@ const TMDB_IMG_URL = "https://image.tmdb.org/t/";
 
 const QUERY_STRING = window.location.search;
 const URL_PARAMS = new URLSearchParams(QUERY_STRING);
+
+const CONSUMER_KEY = "ck_39f7bcc9a98df0e2297823df0abb2093163baf20";
+const CONSUMER_SECRET = "cs_e4cf7ff22535328d4a83476ac03a7de639a100b3";
 const AUTH_URL = "https://www.plumtree.no/square-eyes-api/wp-json/wc/store/products";
 
 const messageBox = document.querySelector("#message-box");
@@ -19,14 +22,7 @@ async function fetchMovie(url, movieID) {
     try {
         const response = await fetch(url + `/${movieID}`);
         const result = await response.json();
-        // for (let item of result) {
-        //     console.log(item.id + " === " + movieID);
-        //     if (item.id == movieID) {
-        //         setupMoviePage(item);
-        //     }
-        // }
-
-        //let movie = result.filter(item => item.id == movieID);
+        console.log(result);
         setupMoviePage(result);
 
     } catch (err) {
@@ -35,7 +31,7 @@ async function fetchMovie(url, movieID) {
     }
 }
 
-function setupMoviePage(movie) {
+async function setupMoviePage(movie) {
    
     setTitle(movie.name);
     setPoster(movie.images);
@@ -46,6 +42,7 @@ function setupMoviePage(movie) {
     setTagline(movie.short_description);
     setTicketLink(movie.id);
     setPrice(movie);
+    getComments(movie.id);
 
     function setPoster(images) {
         const poster = document.querySelector("#film-poster");
@@ -53,6 +50,32 @@ function setupMoviePage(movie) {
             poster.src = images[0].src;
         }
 
+    }
+
+    async function getComments(id) {
+        const commentsBox = document.querySelector(".comments-box");
+        try {
+            const commentResponse = await fetch(`https://www.plumtree.no/square-eyes-api/wp-json/wc/v2/products/${id}/reviews/?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}`);
+            const commentResult = await commentResponse.json();
+            console.log(commentResult);
+            if (commentResult) {
+                commentResult.forEach( (comment) => {
+                    commentsBox.innerHTML += `<div class="comment">
+                                                <h4 class="comment-author">${comment.name}</h4>
+                                                <p class="comment-date">${splitDate(comment.date_created)}</p>
+                                                <p class="comment-text">${comment.review}</p>
+                                              </div>`
+                })
+            } else throw error;
+            
+        } catch (err) {
+            console.error(err);
+        }
+        
+        function splitDate(date) {
+            const dates = date.split("T");
+            return `${dates[1]} — ${dates[0]}`;
+        }
     }
 
     function setBackdrop(url, title) {
