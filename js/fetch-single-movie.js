@@ -106,8 +106,8 @@ async function setupMoviePage(movie) {
     }
 
     function setRating(rating, likes) {
-        document.querySelector("#rating").innerText = `Rating: ${rating}`;
-        document.querySelector("#users-liked").innerText = `Liked by ${likes} users`;
+        //document.querySelector("#rating").innerText = `Rating: ${rating}`;
+        //document.querySelector("#users-liked").innerText = `Liked by ${likes} users`;
     }
 
     function setTagline(tagline) {

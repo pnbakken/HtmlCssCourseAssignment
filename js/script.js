@@ -10,8 +10,10 @@ searchField.addEventListener("keyup", (event) => {
 });
 
 const searchButton = document.querySelector("#search-button");
+console.log(searchButton);
 searchButton.onclick = () => {
+    console.log("clicked");
     if (searchField.value !== "") {
-        searchButton.href += "?search_term=" + searchField.value.trim().toLowerCase();
+        window.location = "./collection.html?search_term=" + searchField.value.trim().toLowerCase();
     }
 }

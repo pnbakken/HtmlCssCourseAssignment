@@ -14,8 +14,20 @@ input[type=number] {
 
 .search-div {
     display:flex;
-    flex-flow: column;
     align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+@media (min-width: 1024px) {
+    .search-div {
+        flex-direction: row;
+        align-items: center;
+        margin-right: 20px;
+        gap: 5px;
+    }
+    .search-div #search-button {
+        width: 30px;
+    }
 }
 
 .collection-page-links {
