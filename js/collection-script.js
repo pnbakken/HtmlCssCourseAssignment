@@ -35,9 +35,13 @@ setupCollectionPage();
 function setupCollectionPage() {
     
     pageLoading(RESULT_TABLE);
+    let offer;
+    if (urlParams.has("on_offer")) {
+        offer = urlParams.get("on_offer");
+    } else offer = false;
     
     if (urlParams.has("search_term") && urlParams.get("search_term") !== "") {
-        getSearchResults(urlParams.get("search_term"), urlParams.get("page"));
+        getSearchResults(urlParams.get("search_term"), urlParams.get("page"), offer);
     } else if (urlParams.has("page")) {
         getCollection(urlParams.get("page"));
     } else {
@@ -68,15 +72,21 @@ async function getCollection(url) {
 
 
 
-async function getSearchResults(searchTerm, pageNumber= 1) {
+async function getSearchResults(searchTerm, pageNumber= 1, onOffer) {
     const URL = AUTH_URL;
     
     try {
         const response = await fetch(URL);
         const result = await response.json();
+        console.log(result);
         pageReady(RESULT_TABLE);
         // generatePageLinks(result.total_pages, result.page, searchTerm);
-        displayResults(result.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())), `Results for "${searchTerm}"`);
+        if (!onOffer) {
+            displayResults(result.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())), `Results for "${searchTerm}"`);
+        } else {
+            displayResults(result.filter(item =>item.name.toLowerCase().includes(searchTerm.toLowerCase()) && item.on_sale), `Results for "${searchTerm}"`);
+        }
+        
     } catch (err) {
         console.error(err);
         return null;
@@ -176,16 +186,38 @@ function pageReady(container) {
 
 const titleSearchButton = document.querySelector("#title-search-button");
 const titleSearchField = document.querySelector("#title-search");
+const filterOffer = document.querySelector("#filter-offer")
+console.log(filterOffer.checked);
 titleSearchField.addEventListener("keyup", (event) => {
     
  if (event.keyCode === 13 && titleSearchField.value.trim()) {
-     
      event.preventDefault();
-     location.href = `./collection.html?search_term=${titleSearchField.value.trim().toLowerCase()}`;
+     if (filterOffer.checked) {
+        console.log("offer checked");
+         goToSearch(titleSearchField.value.trim().toLowerCase(), true)
+     } else {
+         goToSearch(titleSearchField.value.trim().toLowerCase());
+     }
+     
  }
 });
-titleSearchButton.onclick = () => {
-    if (titleSearchField.value !== "") {
-        titleSearchButton.href += "?search_term=" + titleSearchField.value.trim().toLowerCase();
+titleSearchButton.onclick = (e) => {
+    e.preventDefault();
+    if (titleSearchField.value.trim()) {
+        if (filterOffer.checked) {
+            goToSearch(titleSearchField.value.trim().toLowerCase(), true)
+        } else {
+            
+            goToSearch(titleSearchField.value.trim().toLowerCase());
+        }
+        
+    }
+}
+
+function goToSearch(search, onOffer=false) {
+    if (onOffer) {
+        window.location = `./collection.html?search_term=${search}&on_offer=true`;
+    } else {
+        window.location = `./collection.html?search_term=${search}`;
     }
 }
